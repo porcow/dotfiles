@@ -196,4 +196,4 @@
                   :initializationOptions
                   (:extendedClientCapabilities (:classFileContentsSupport t))))))
 
-(provide 'dw-develop)
+(provide 'ww-develop)

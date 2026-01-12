@@ -38,4 +38,4 @@
   (setf (alist-get 'org-mode logos-outline-regexp-alist) "^\\*\\{1,2\\} +")
   (add-hook 'logos-page-motion-hook #'dw/present-prepare-slide))
 
-(provide 'dw-present)
+(provide 'ww-present)

@@ -130,4 +130,4 @@
   (add-hook 'denote-after-rename-file-hook #'dw/refresh-agenda-files)
   (add-hook 'denote-after-new-note-hook #'dw/refresh-agenda-files))
 
-(provide 'dw-workflow)
+(provide 'ww-workflow)

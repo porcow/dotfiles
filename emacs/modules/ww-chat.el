@@ -41,4 +41,4 @@
   ;; Unset the global key binding
   (global-set-key (kbd "C-x C-j") #'dired-jump))
 
-(provide 'dw-chat)
+(provide 'ww-chat)

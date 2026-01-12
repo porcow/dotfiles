@@ -23,4 +23,4 @@
     (message "The URL is %s" url)
     (kill-new url)))
 
-(provide 'dw-0x0)
+(provide 'ww-0x0)

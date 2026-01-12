@@ -27,4 +27,4 @@
 (use-package vterm
   :ensure t)
 
-(provide 'dw-system)
+(provide 'ww-system)

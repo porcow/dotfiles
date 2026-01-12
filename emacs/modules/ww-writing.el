@@ -107,4 +107,4 @@
      `(iigrep-counts-face4 ((,c :foreground ,rainbow-4)))
      `(iigrep-counts-face5 ((,c :foreground ,rainbow-5))))))
 
-(provide 'dw-writing)
+(provide 'ww-writing)

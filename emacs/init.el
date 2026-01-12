@@ -130,11 +130,11 @@
 (defvar dw/use-config-modules '()
   "A list of module symbols to load once init.el is finished.")
 
-(defvar dw/common-config-modules '(dw-auth
-                                   dw-present
-                                   dw-0x0
-                                   dw-writing
-                                   dw-workflow)
+(defvar dw/common-config-modules '(ww-auth
+                                   ww-present
+                                   ww-0x0
+                                   ww-writing
+                                   ww-workflow)
   "Configuration modules most commonly used across my machines.")
 
 ;; Add configuration modules to load path
@@ -597,9 +597,9 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
 ;;; Finalization ---------------------------------------------------------------
 (setq dw/use-config-modules
       (append dw/common-config-modules
-              '(dw-system
-                dw-develop
-                dw-chat
+              '(ww-system
+                ww-develop
+                ww-chat
                 ww-ai
                 ww-company)))
 

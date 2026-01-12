@@ -10,4 +10,4 @@
   :config
   (pinentry-start))
 
-(provide 'dw-auth)
+(provide 'ww-auth)
