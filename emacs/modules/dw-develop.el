@@ -1,5 +1,9 @@
 ;; -*- lexical-binding: t; -*-
 
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
+
 (use-package project
   :ensure nil
   :bind (:map project-prefix-map
@@ -84,8 +88,7 @@
       (when (fboundp 'flycheck-eglot-mode)
         (flycheck-eglot-mode 1))))
 
-(use-package eglot
-  :ensure nil
+(use-package eglot  :ensure nil
   :hook ((js-mode
           typescript-mode
           java-mode

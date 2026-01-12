@@ -48,7 +48,7 @@
 
 ;; Tabs to spaces
 (setq-default indent-tabs-mode nil
-	      tab-width 2)
+	            tab-width 2)
 
 ;; Display line numbers in programming modes
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
@@ -104,6 +104,9 @@
 
 (keymap-set minibuffer-local-map "C-p" #'minibuffer-previous-completion)
 (keymap-set minibuffer-local-map "C-n" #'minibuffer-next-completion)
+
+(windmove-default-keybindings 'meta)
+
 
 ;;; System Identification ------------------------------------------------------
 ;; If we're on macOS, use Apple's colourful emojis
@@ -184,8 +187,8 @@
                       :height 100)
 
   ;; Make frames transparent
-  (set-frame-parameter (selected-frame) 'alpha-background 90)
-  (add-to-list 'default-frame-alist '(alpha-background . 90))
+  (set-frame-parameter (selected-frame) 'alpha '(97 . 100))
+  (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
   (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
   (add-to-list 'default-frame-alist '(fullscreen . maximized)))
