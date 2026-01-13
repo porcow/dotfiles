@@ -11,6 +11,9 @@
       erc-fill-function 'erc-fill-static
       erc-fill-static-center 20
       erc-track-enable-keybindings t
+      erc-server-auto-reconnect t
+      erc-server-reconnect-attempts t
+      erc-server-reconnect-timeout 15
       erc-use-sasl t
       erc-sasl-mechanism 'plain)
 
