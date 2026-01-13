@@ -4,6 +4,12 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
+(global-set-key (kbd "C-c d") #'eldoc-doc-buffer)
+;; Better eldoc display
+(setq eldoc-echo-area-use-multiline-p t)
+;; Optional: keep docs visible longer
+(setq eldoc-idle-delay 0.2)
+
 (use-package project
   :ensure nil
   :bind (:map project-prefix-map

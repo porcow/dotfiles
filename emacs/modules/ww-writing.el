@@ -35,8 +35,10 @@
   (display-line-numbers-mode 0))
 
 (use-package markdown-mode
+  :custom
+  (markdown-fontify-code-blocks-natively t)
+  (markdown-command "marked")
   :config
-  (setq markdown-command "marked")
   (add-hook 'markdown-mode-hook #'dw/setup-markdown-mode)
   (dolist (face '((markdown-header-face-1 . 1.2)
                   (markdown-header-face-2 . 1.1)
