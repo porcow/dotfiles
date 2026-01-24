@@ -49,11 +49,11 @@
 # resize-overlay-duration = 4s 200ms
 
 ## Appearance -----------------------------------------
-theme = Catppuccin Mocha
+theme = Ayu
 font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 12
-background-opacity = 0.75
-background-blur-radius = 64
+background-opacity = 0.83
+background-blur-radius = 60
 quick-terminal-size=100%,100%
 quick-terminal-position="center"
 quick-terminal-autohide=false

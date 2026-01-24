@@ -187,8 +187,8 @@
                       :height 100)
 
   ;; Make frames transparent
-  (set-frame-parameter (selected-frame) 'alpha '(97 . 100))
-  (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+  (set-frame-parameter (selected-frame) 'alpha '(93 . 93))
+  (add-to-list 'default-frame-alist '(alpha . (93 . 93)))
 
   (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
   (add-to-list 'default-frame-alist '(fullscreen . maximized)))
@@ -474,7 +474,7 @@ Opening and closing delimiters will have matching colors."
 
 ;;; Document Centering ---------------------------------------------------------
 
-(defvar center-document-desired-width 90
+(defvar center-document-desired-width 95
   "The desired width of a document centered in the window.")
 
 (defvar center-document--hooks-installed nil)
@@ -550,7 +550,7 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
 
 (defun dw/dired-mode-hook ()
   (interactive)
-  (dired-hide-details-mode 1)
+  ;; (dired-hide-details-mode 1)3
   (hl-line-mode 1))
 
 (use-package dired
@@ -601,6 +601,12 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
   :init
   (exec-path-from-shell-initialize))
 
+;; Enable which-key-mode globally
+(use-package which-key
+  :config
+  (which-key-mode 1)
+  (setq which-key-idle-delay 0.3))
+
 ;;; Finalization ---------------------------------------------------------------
 (setq dw/use-config-modules
       (append dw/common-config-modules
@@ -608,7 +614,7 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
                 ww-develop
                 ww-chat
                 ww-ai
-                ww-company)))
+                ww-completion)))
 
 ;; Load requested configuration modules
 (dolist (module dw/use-config-modules)
