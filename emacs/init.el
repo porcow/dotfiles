@@ -134,7 +134,8 @@
                                    ww-present
                                    ww-0x0
                                    ww-writing
-                                   ww-workflow)
+                                   ;;ww-workflow
+                                   )
   "Configuration modules most commonly used across my machines.")
 
 ;; Add configuration modules to load path
@@ -187,8 +188,8 @@
                       :height 100)
 
   ;; Make frames transparent
-  (set-frame-parameter (selected-frame) 'alpha '(93 . 93))
-  (add-to-list 'default-frame-alist '(alpha . (93 . 93)))
+  (set-frame-parameter (selected-frame) 'alpha '(97 . 97))
+  (add-to-list 'default-frame-alist '(alpha . (97 . 97)))
 
   (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
   (add-to-list 'default-frame-alist '(fullscreen . maximized)))
@@ -474,7 +475,7 @@ Opening and closing delimiters will have matching colors."
 
 ;;; Document Centering ---------------------------------------------------------
 
-(defvar center-document-desired-width 95
+(defvar center-document-desired-width 90
   "The desired width of a document centered in the window.")
 
 (defvar center-document--hooks-installed nil)
@@ -614,7 +615,8 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
                 ww-develop
                 ww-chat
                 ww-ai
-                ww-completion)))
+                ww-completion
+                ww-info)))
 
 ;; Load requested configuration modules
 (dolist (module dw/use-config-modules)

@@ -1,5 +1,12 @@
 ;; -*- lexical-binding: t; -*-
 
+;; Auto-encrypt/decrypt *.gpg files
+(require 'epa-file)
+(epa-file-enable)
+
+;; Cache passphrase (optional, less annoying)
+(setq epa-file-cache-passphrase-for-symmetric-encryption t)
+
 ;; Use `pass` as an auth-source
 (when (file-exists-p "~/.password-store")
   (auth-source-pass-enable))

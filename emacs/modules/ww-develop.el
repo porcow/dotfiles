@@ -198,7 +198,7 @@
 ;;; --- Python -----------------------------------------------------------------
 (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
 
-;;; --- JS / TS ----------------------------------------------------------------
+;;; --- JS / TS / JSON----------------------------------------------------------------
 (use-package js-mode
   :ensure nil
   :mode ("\\.jsx?\\'")
@@ -209,6 +209,8 @@
   :mode ("\\.tsx?\\'")
   :config
   (setq-default typescript-indent-level 2))
+
+(add-to-list 'auto-mode-alist '("\\.json\\'" . json-ts-mode))
 
 ;;;--- Rust --------------------------------------------------------------------
 ;; Use tree-sitter Rust mode when available

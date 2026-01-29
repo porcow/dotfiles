@@ -68,7 +68,7 @@
 (defvar dw/base-agenda-files '("Inbox.org" "Schedule.org")
   "The base agenda files that will always be included.")
 
-(setq org-directory "~/Notes"
+(setq org-directory "~/Documents/Notes"
       org-agenda-span 'day
       org-agenda-start-with-log-mode t
       org-agenda-files dw/base-agenda-files

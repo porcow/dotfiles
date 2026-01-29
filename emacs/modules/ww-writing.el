@@ -2,27 +2,102 @@
 
 (use-package denote
   :demand t
+  :preface
+  (defun ww/denote-markdown ()
+    "Create a new Denote note as Markdown."
+    (interactive)
+    (let ((denote-file-type 'markdown-toml))
+      (call-interactively #'denote)))
+
+  (defun ww/encrypt-current-note ()
+    "Encrypt current note by rewriting it to FILE.gpg (not just renaming)."
+    (interactive)
+    (unless buffer-file-name
+      (user-error "Current buffer is not visiting a file"))
+    (when (string-suffix-p ".gpg" buffer-file-name)
+      (user-error "Already encrypted: %s" buffer-file-name))
+
+    ;; Ensure latest plaintext is in the buffer
+    (save-buffer)
+
+    (let* ((old buffer-file-name)
+           (new (concat old ".gpg"))
+           (bak (concat old ".bak")))
+      (when (file-exists-p new)
+        (user-error "Target already exists: %s" new))
+
+      ;; Keep a backup of the plaintext file until encryption succeeds
+      (rename-file old bak t)
+
+      (unwind-protect
+          (progn
+            ;; Now write encrypted content to NEW
+            (set-visited-file-name new t t)
+            (set-buffer-modified-p t)   ;; force write even if contents unchanged
+            (basic-save-buffer)         ;; triggers epa-file encryption for .gpg
+            ;; If we get here, encryption succeeded; remove backup
+            (when (file-exists-p bak)
+              (delete-file bak))
+            (message "Encrypted note: %s" (file-name-nondirectory new)))
+        ;; If something went wrong, try to restore original file name
+        (when (and (file-exists-p bak) (not (file-exists-p old)))
+          (ignore-errors (rename-file bak old t))))))
+
+  (defun ww/decrypt-current-note ()
+    "Decrypt current note by rewriting it to FILE without .gpg extension."
+    (interactive)
+    (unless buffer-file-name
+      (user-error "Current buffer is not visiting a file"))
+    (unless (string-suffix-p ".gpg" buffer-file-name)
+      (user-error "Not a .gpg file: %s" buffer-file-name))
+
+    ;; Buffer already contains decrypted text (Emacs decrypts on open)
+    (save-buffer)
+
+    (let* ((old buffer-file-name) ;; ends with .gpg
+           (new (string-remove-suffix ".gpg" old))
+           (bak (concat old ".bak")))
+      (when (file-exists-p new)
+        (user-error "Target already exists: %s" new))
+
+      ;; Keep a backup of the encrypted file until plaintext write succeeds
+      (rename-file old bak t)
+
+      (unwind-protect
+          (progn
+            ;; Now write plaintext content to NEW
+            (set-visited-file-name new t t)
+            (set-buffer-modified-p t)   ;; force write
+            (basic-save-buffer)         ;; writes plaintext (no .gpg handler)
+            ;; Success: remove encrypted backup
+            (when (file-exists-p bak)
+              (delete-file bak))
+            (message "Decrypted note: %s" (file-name-nondirectory new)))
+        ;; Restore on failure
+        (when (and (file-exists-p bak) (not (file-exists-p old)))
+          (ignore-errors (rename-file bak old t))))))
+
   :bind (("C-c n l" . denote-link-or-create)
          ("C-c n o" . denote-open-or-create)
-         ("C-c n r" . denote-rename-file-using-front-matter))
+         ("C-c n r" . denote-rename-file-using-front-matter)
+         ("C-c n m" . ww/denote-markdown)
+         ("C-c n e" . ww/encrypt-current-note)
+         ("C-c n d" . ww/decrypt-current-note))
   :custom
-  (denote-directory "~/Notes/Log")
+  (denote-directory (file-truename "~/Documents/Notes"))
   (denote-rename-buffer-format "Denote: %t (%k)")
-  (denote-infer-keywords nil)
+  ;; (denote-infer-keywords nil)
   (denote-known-keywords
-   '("pra" "prb" "prc"
-     "ply" "plm" "plw"
-     "kt" "ke" "kp" "kl" "ka" "kap"
-     "kcp" "kca" "kcc"
-     "kra" "krb" "krv"
-     "rn"))
+   '("programming" "health" "emacs" "wxw" "kid" "diary" "private"))
 
   :config
-  ;; Rename buffers with the note name
+   ;; Rename buffers with the note name
   (denote-rename-buffer-mode 1)
 
   ;; Buttonize all denote links in text buffers
-  (add-hook 'text-mode-hook #'denote-fontify-links-mode-maybe))
+  (add-hook 'text-mode-hook #'denote-fontify-links-mode-maybe)
+  (add-hook 'dired-mode-hook #'denote-dired-mode))
+
 
 (use-package consult-notes
   :ensure nil
@@ -69,7 +144,7 @@
         howm-buffer-name-format "howm: %s"
         howm-buffer-name-limit 100
         howm-buffer-name-total-limit 100
-        howm-directory "~/Notes"
+        howm-directory "~/Documents/Notes"
         howm-keyword-file (expand-file-name ".howm-keys" howm-directory)
         howm-history-file (expand-file-name ".howm-history" howm-directory)
         howm-file-name-format "%Y/%m/%Y-%m-%d-%H%M%S.org"

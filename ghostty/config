@@ -52,8 +52,12 @@
 theme = Ayu
 font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 12
+# Disable font ligatures
+font-feature = -liga
+font-feature = -dlig
+font-feature = -calt
 background-opacity = 0.83
-background-blur-radius = 60
+background-blur-radius = 65
 quick-terminal-size=100%,100%
 quick-terminal-position="center"
 quick-terminal-autohide=false
