@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: t; -*-
+
 (use-package symbol-overlay
   :hook (prog-mode . symbol-overlay-mode)
   :bind (("M-n" . symbol-overlay-jump-next)
@@ -81,6 +82,31 @@
   :config
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 
+;;; --- Lua major mode ---------------------------------------------------------
+(use-package lua-mode
+  :mode "\\.lua\\'")
+
+;; pico-8 setup
+(use-package pico8-mode
+  :vc (:url "https://github.com/porcow/pico8-mode.git"
+       :rev :newest)
+  :mode "\\.p8\\'"
+  :custom
+  (pico8-executable-path "/Applications/PICO-8.app/Contents/MacOS/pico8")
+  (pico8-documentation-file "/Users/porco/Downloads/games/DevTool/pico-8/pico-8_manual.txt")
+  :config
+  (defun my/pico8-setup-font ()
+    ;; PICO-8 font
+    (face-remap-add-relative
+     'default
+     ;; :family "ComicShannsMono Nerd Font Mono"
+     :family "PICO-8-0.2.5"
+     :weight 'normal
+     :height 140)
+    (setq-local line-spacing 2))
+  :hook
+  (pico8-mode . my/pico8-setup-font))
+
 (use-package eglot
   :ensure nil
   :hook ((js-mode
@@ -96,6 +122,8 @@
           zig-mode
           go-mode
           go-ts-mode
+          lua-mode
+          pico8-mode
           ) . eglot-ensure)
   :bind
   (("M-RET" . eglot-code-actions))
@@ -103,8 +131,19 @@
   (setq eglot-autoshutdown t)
   (setq eglot-send-changes-idle-time 0.25)
   (setq eglot-report-progress nil)
+  ;; Use Company via CAPF
+  ;; (company-capf is enabled automatically when company-mode is on)
+  (setq company-backends '(company-capf))
 
   ;; ---- Server mappings (explicit & reliable) ----
+
+  ;; Lua language server
+  (add-to-list 'eglot-server-programs
+               '(lua-mode . ("lua-language-server")))
+
+  ;; Pico-8 language server
+  (add-to-list 'eglot-server-programs
+               '(pico8-mode . ("node" "/Users/porco/Downloads/games/DevTool/pico-8/pico8-ls/server/out/server.js" "--stdio")))
 
   ;; Python: pyright
   (add-to-list 'eglot-server-programs

@@ -166,7 +166,7 @@
 ;; Set reusable font name variables
 ;; "JetBrainsMono Nerd Font Mono"
 ;; "ComicShannsMono Nerd Font Mono"
-(defvar my/fixed-width-font "JetBrainsMono Nerd Font Mono"
+(defvar my/fixed-width-font "ComicShannsMono Nerd Font Mono"
   "The font to use for monospaced (fixed width) text.")
 
 (defvar my/variable-width-font "Iosevka Aile"
@@ -188,8 +188,8 @@
                       :height 100)
 
   ;; Make frames transparent
-  (set-frame-parameter (selected-frame) 'alpha '(97 . 97))
-  (add-to-list 'default-frame-alist '(alpha . (97 . 97)))
+  (set-frame-parameter (selected-frame) 'alpha '(99 . 99))
+  (add-to-list 'default-frame-alist '(alpha . (98 . 99)))
 
   (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
   (add-to-list 'default-frame-alist '(fullscreen . maximized)))
@@ -295,12 +295,95 @@
             (docstring "#8d92af")
             (constant "#f78c6c"))))
 
+(defun dw/apply-pico8-style ()
+  "Apply the PICO-8 VS Code palette to Modus themes via `modus-themes-common-palette-overrides`."
+  (interactive)
+  (setopt
+   modus-themes-italic-constructs t
+   modus-themes-bold-constructs t
+   modus-themes-common-palette-overrides
+   `(
+     ;; --- Core (VS Code: editor.background/foreground) ---
+     (bg-main "#1D2B53")
+     (bg-active bg-main)
+     (fg-main "#c2c3c7")
+     (fg-active fg-main)
+     (cursor "#ff004d")
+
+     ;; Keep these unspecified so Modus can render them appropriately
+     (fringe unspecified)
+     (border-mode-line-active unspecified)
+     (border-mode-line-inactive unspecified)
+
+     ;; --- Mode line (VS Code: statusBar.* + panel background) ---
+     ;; statusBar.background = #ff004d, statusBar.foreground = #7e2553
+     (bg-mode-line-active "#ff004d")
+     (fg-mode-line-active "#7e2553")
+     ;; panel.background = #000000, editorLineNumber.foreground = #83769c
+     (bg-mode-line-inactive "#000000")
+     (fg-mode-line-inactive "#83769c")
+
+     ;; --- Tabs (VS Code: tab.*) ---
+     ;; tab.activeBackground = #fff1e8, tab.activeForeground = #ff004d
+     ;; tab.inactiveBackground = #ff77a8, tab.inactiveForeground = #ff004d
+     ;; For Modus we mainly control the backgrounds here:
+     (bg-tab-bar     "#ff004d")   ;; matches editorGroupHeader.tabsBackground
+     (bg-tab-current "#fff1e8")
+     (bg-tab-other   "#ff77a8")
+
+     ;; --- Prompt / hover / completion / region ---
+     ;; Use a strong accent for prompts (close to VSCode tab/keyword highlights)
+     (fg-prompt "#ff77a8")
+     (bg-prompt unspecified)
+
+     ;; hover-ish secondary (VS Code uses #5f574f a lot for drop/borders)
+     (bg-hover-secondary "#5f574f")
+
+     ;; completion/widget (VS Code: editorWidget.background/border)
+     (bg-completion "#000000")
+     (fg-completion "#fff1e8")
+
+     ;; selection (VS Code: editor.selectionBackground)
+     (bg-region "#ffec27")
+     (fg-region "#000000")
+
+     ;; --- Headings (picked from PICO-8 palette ramp in the JSON) ---
+     (fg-heading-0 "#00e436")  ;; green
+     (fg-heading-1 "#29adff")  ;; blue
+     (fg-heading-2 "#ffec27")  ;; yellow
+     (fg-heading-3 "#ffa300")  ;; orange
+     (fg-heading-4 "#ff77a8")  ;; pink
+
+     ;; --- Prose / blocks (use widget/panel colors + line-number purple) ---
+     (fg-prose-verbatim "#29adff")     ;; string/heading-ish blue
+     (bg-prose-block-contents "#000000")
+     (fg-prose-block-delimiter "#83769c")
+     (bg-prose-block-delimiter bg-prose-block-contents)
+
+     ;; --- Accent ---
+     ;; VS Code cursor is #ff004d
+     (accent-1 "#ff004d")
+
+     ;; --- Syntax slots (map from tokenColors) ---
+     (keyword   "#ff77a8")  ;; Keyword, Storage
+     (builtin   "#00e436")  ;; Support Functions
+     (comment   "#83769c")  ;; Comment
+     (string    "#29adff")  ;; String, Symbols, Markup Heading
+     (fnname    "#c2c3c7")  ;; Function, Special Method
+     (type      "#fff1e8")  ;; Class, Support
+     (variable  "#ffccaa")  ;; Variables
+     (docstring "#4bb1b1")  ;; default token foreground in file
+     (constant  "#29adff")  ;; Number, Constant, etc.
+     )))
+
 (use-package modus-themes
   :ensure nil
   :demand t
   :init
   (load-theme 'modus-vivendi-tinted t)
-  (dw/apply-palenight-style)
+  (dw/apply-pico8-style)
+  ;; (dw/apply-ayu-dark-style)
+  ;; (dw/apply-palenight-style)
   (add-hook 'modus-themes-after-load-theme-hook #'dw/clear-background-color))
 
 ;; Make vertical window separators look nicer in terminal Emacs
