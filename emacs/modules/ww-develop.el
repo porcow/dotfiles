@@ -105,8 +105,6 @@
           zig-mode
           go-mode
           go-ts-mode
-          lua-mode
-          pico8-mode
           ) . eglot-ensure)
   :bind
   (("M-RET" . eglot-code-actions))
@@ -119,14 +117,6 @@
   (setq company-backends '(company-capf))
 
   ;; ---- Server mappings (explicit & reliable) ----
-
-  ;; Lua language server
-  (add-to-list 'eglot-server-programs
-               '(lua-mode . ("lua-language-server")))
-
-  ;; Pico-8 language server
-  (add-to-list 'eglot-server-programs
-               '(pico8-mode . ("node" "/Users/porco/Downloads/games/DevTool/pico-8/pico8-ls/server/out/server.js" "--stdio")))
 
   ;; Python: pyright
   (add-to-list 'eglot-server-programs

@@ -132,7 +132,7 @@
   "Configuration modules most commonly used across my machines.")
 
 ;; Add configuration modules to load path
-(add-to-list 'load-path '"~/.dotfiles/emacs/modules")
+(add-to-list 'load-path '"~/dotfiles/emacs/modules")
 
 ;;; Appearance -----------------------------------------------------------------
 
