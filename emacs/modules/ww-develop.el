@@ -18,6 +18,14 @@
 (setq eldoc-echo-area-use-multiline-p t)
 ;; Optional: keep docs visible longer
 (setq eldoc-idle-delay 0.2)
+
+(with-eval-after-load 'eglot
+  (defun my/eglot-eldoc-setup ()
+    ;; Prefer signature help while in calls; hover is a good fallback.
+    (add-hook 'eldoc-documentation-functions #'eglot-signature-eldoc-function nil t)
+    (add-hook 'eldoc-documentation-functions #'eglot-hover-eldoc-function nil t))
+
+  (add-hook 'eglot-managed-mode-hook #'my/eglot-eldoc-setup))
 ;; --- eldoc end ---------------------------------------------------------------
 
 ;; Minimal pairing for programming: only (), [], {}
@@ -81,31 +89,6 @@
   :ensure t
   :config
   (add-hook 'prog-mode-hook #'yas-minor-mode))
-
-;;; --- Lua major mode ---------------------------------------------------------
-(use-package lua-mode
-  :mode "\\.lua\\'")
-
-;; pico-8 setup
-(use-package pico8-mode
-  :vc (:url "https://github.com/porcow/pico8-mode.git"
-       :rev :newest)
-  :mode "\\.p8\\'"
-  :custom
-  (pico8-executable-path "/Applications/PICO-8.app/Contents/MacOS/pico8")
-  (pico8-documentation-file "/Users/porco/Downloads/games/DevTool/pico-8/pico-8_manual.txt")
-  :config
-  (defun my/pico8-setup-font ()
-    ;; PICO-8 font
-    (face-remap-add-relative
-     'default
-     ;; :family "ComicShannsMono Nerd Font Mono"
-     :family "PICO-8-0.2.5"
-     :weight 'normal
-     :height 140)
-    (setq-local line-spacing 2))
-  :hook
-  (pico8-mode . my/pico8-setup-font))
 
 (use-package eglot
   :ensure nil

@@ -107,13 +107,6 @@
 
 (windmove-default-keybindings 'meta)
 
-
-;;; System Identification ------------------------------------------------------
-;; If we're on macOS, use Apple's colourful emojis
-(when (eq system-type 'darwin)
-  (when (member "Apple Color Emoji" (font-family-list))
-    (set-fontset-font t 'emoji "Apple Color Emoji" nil 'prepend)))
-
 ;;; Package Management ---------------------------------------------------------
 (require 'package)
 (add-to-list 'package-archives '("MELPA" . "https://melpa.org/packages/") t)
@@ -175,21 +168,21 @@
   (set-face-attribute 'default nil
                       :font my/fixed-width-font
                       :weight 'normal
-                      :height 120)
+                      :height 140)
 
   (set-face-attribute 'fixed-pitch nil
                       :font my/fixed-width-font
                       :weight 'normal
-                      :height 120)
+                      :height 140)
 
   (set-face-attribute 'variable-pitch nil
                       :font my/variable-width-font
                       :weight 'normal
-                      :height 100)
+                      :height 120)
 
   ;; Make frames transparent
-  (set-frame-parameter (selected-frame) 'alpha '(99 . 99))
-  (add-to-list 'default-frame-alist '(alpha . (98 . 99)))
+  ;; (set-frame-parameter (selected-frame) 'alpha '(99 . 99))
+  ;; (add-to-list 'default-frame-alist '(alpha . (98 . 99)))
 
   (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
   (add-to-list 'default-frame-alist '(fullscreen . maximized)))
@@ -380,11 +373,44 @@
   :ensure nil
   :demand t
   :init
-  (load-theme 'modus-vivendi-tinted t)
   (dw/apply-pico8-style)
   ;; (dw/apply-ayu-dark-style)
   ;; (dw/apply-palenight-style)
+  (load-theme 'modus-vivendi-tinted t)
   (add-hook 'modus-themes-after-load-theme-hook #'dw/clear-background-color))
+
+;;; ----------------------------------------------------------------------------
+;;; Tab bar face customization for PICO-8 style
+;;; ----------------------------------------------------------------------------
+
+(with-eval-after-load 'modus-themes
+  (defun dw/pico8-tab-bar-faces ()
+    "Apply PICO-8 styled tab-bar faces after Modus loads."
+    (modus-themes-with-colors
+      ;; Entire tab bar
+      (set-face-attribute 'tab-bar nil
+                          :background bg-tab-bar
+                          :foreground fg-mode-line-active)
+
+      ;; Active tab
+      (set-face-attribute 'tab-bar-tab nil
+                          :background bg-tab-current
+                          :foreground accent-1
+                          :weight 'bold
+                          :box nil)
+
+      ;; Inactive tabs
+      (set-face-attribute 'tab-bar-tab-inactive nil
+                          :background bg-tab-other
+                          :foreground accent-1
+                          :box nil)))
+
+  ;; Re-apply after theme loads or switches
+  (add-hook 'modus-themes-after-load-theme-hook #'dw/pico8-tab-bar-faces)
+
+  ;; Ensure it applies on startup even if theme loads early
+  (add-hook 'emacs-startup-hook #'dw/pico8-tab-bar-faces))
+
 
 ;; Make vertical window separators look nicer in terminal Emacs
 (set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?│))
@@ -696,6 +722,7 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
       (append dw/common-config-modules
               '(ww-system
                 ww-develop
+                ww-pico8
                 ww-chat
                 ww-ai
                 ww-completion
@@ -704,3 +731,4 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
 ;; Load requested configuration modules
 (dolist (module dw/use-config-modules)
   (require module))
+(put 'downcase-region 'disabled nil)

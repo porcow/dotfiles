@@ -109,10 +109,32 @@
   (center-document-mode 1)
   (display-line-numbers-mode 0))
 
+;; Automatically display and animate images when opening markdown files
+(defun my-markdown-display-images-on-open ()
+  "Automatically display inline images when opening markdown files."
+  (when (and (derived-mode-p 'markdown-mode)
+             (not markdown-inline-image-overlays))
+    (markdown-toggle-inline-images)))
+
 (use-package markdown-mode
   :custom
   (markdown-fontify-code-blocks-natively t)
   (markdown-command "marked")
+  :init
+  (setq image-animate-loop t)
+  (defun my-animate-gifs-after-toggle (&rest _)
+    "Animate all images after toggling inline images."
+    (when markdown-inline-image-overlays
+      (run-with-idle-timer 0.1 nil
+                           (lambda ()
+                             (dolist (overlay (overlays-in (point-min) (point-max)))
+                               (when-let ((img (overlay-get overlay 'display)))
+                                 (when (and (consp img) (eq (car img) 'image))
+                                   (image-animate img nil t))))))))
+
+  (advice-add 'markdown-toggle-inline-images :after #'my-animate-gifs-after-toggle)
+  :hook
+  (markdown-mode . my-markdown-display-images-on-open)
   :config
   (add-hook 'markdown-mode-hook #'dw/setup-markdown-mode)
   (dolist (face '((markdown-header-face-1 . 1.2)
