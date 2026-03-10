@@ -27,15 +27,14 @@
    `((,pico8--operator-regex 1 'pico8-operator-face))
    'append))
 
-(defvar ww/pico8-font-family "ComicShannsMono Nerd Font Mono")
-
 (defun ww/pico8-setup-font ()
   ;; PICO-8 font + byte-safe round-trip P8SCII editing.
   (face-remap-add-relative
    'default
-   :family ww/pico8-font-family
+   :family "PICO-8-0.2.5"
    :weight 'normal
-   :height 140))
+   :height 120)
+  (setq-local line-spacing 2))
 
 (use-package pico8-mode
   :vc (:url "https://github.com/porcow/pico8-mode.git"
@@ -45,8 +44,8 @@
   (pico8-executable-path "/Applications/PICO-8.app/Contents/MacOS/pico8")
   (pico8-documentation-file "/Users/porco/Downloads/games/DevTool/pico-8/pico-8_manual.txt")
   :hook
-  (pico8-mode . ww/pico8-setup-font)
-  (pico8-mode . pico8--highlight-operators))
+  (;; (pico8-mode . ww/pico8-setup-font)
+  (pico8-mode . pico8--highlight-operators)))
 
 (use-package eglot
   :ensure nil
