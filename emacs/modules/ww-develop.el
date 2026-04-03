@@ -14,18 +14,58 @@
 
 ;; --- eldoc config ------------------------------------------------------------
 (global-set-key (kbd "C-c d") #'eldoc-doc-buffer)
-;; Better eldoc display
-(setq eldoc-echo-area-use-multiline-p t)
+;; Keep terminal redisplay stable; allow richer echo-area docs in GUI.
+(setq eldoc-echo-area-use-multiline-p (display-graphic-p))
+
 ;; Optional: keep docs visible longer
 (setq eldoc-idle-delay 0.2)
 
 (with-eval-after-load 'eglot
   (defun my/eglot-eldoc-setup ()
-    ;; Prefer signature help while in calls; hover is a good fallback.
-    (add-hook 'eldoc-documentation-functions #'eglot-signature-eldoc-function nil t)
-    (add-hook 'eldoc-documentation-functions #'eglot-hover-eldoc-function nil t))
+    (setq-local eldoc-documentation-functions
+                (if (display-graphic-p)
+                    '(eglot-signature-eldoc-function
+                      eglot-hover-eldoc-function)
+                  '(eglot-signature-eldoc-function)))
+    (setq-local eldoc-echo-area-use-multiline-p (display-graphic-p)))
 
   (add-hook 'eglot-managed-mode-hook #'my/eglot-eldoc-setup))
+
+;; ---HTML escapes -------------------------------
+(defvar rb--eldoc-html-patterns
+  '(("&nbsp;" " ")
+    ("&lt;" "<")
+    ("&gt;" ">")
+    ("&amp;" "&")
+    ("&quot;" "\"")
+    ("&apos;" "'"))
+  "List of (PATTERN . REPLACEMENT) to replace in eldoc output.")
+
+(defun rb--string-replace-all (patterns in-string)
+  "Replace all cars from PATTERNS in IN-STRING with their pair."
+  (mapc (lambda (pattern-pair)
+          (setq in-string
+                (string-replace (car pattern-pair) (cadr pattern-pair) in-string)))
+        patterns)
+  in-string)
+
+(defun rb--eldoc-preprocess (orig-fun &rest args)
+  "Preprocess the docs to be displayed by eldoc to replace HTML escapes."
+  (let ((doc (car args)))
+    ;; The first argument is a list of (STRING :KEY VALUE ...) entries
+    ;; we replace the text in each such string
+    ;; see docstring of `eldoc-display-functions'
+    (when (listp doc)
+      (setq doc (mapcar
+                 (lambda (doc) (cons
+                                (rb--string-replace-all rb--eldoc-html-patterns (car doc))
+                                (cdr doc)))
+                 doc
+                 ))
+      )
+    (apply orig-fun (cons doc (cdr args)))))
+
+(advice-add 'eldoc-display-in-buffer :around #'rb--eldoc-preprocess)
 ;; --- eldoc end ---------------------------------------------------------------
 
 ;; Minimal pairing for programming: only (), [], {}
@@ -121,7 +161,7 @@
   ;; Python: pyright
   (add-to-list 'eglot-server-programs
 	       `((python-mode python-ts-mode)
-	         . ,(eglot-alternatives '(("pyright-langserver" "--stdio")))))
+	         . ,(eglot-alternatives '(("basedpyright-langserver" "--stdio")))))
 
   ;; Java: jdtls
   (add-to-list 'eglot-server-programs

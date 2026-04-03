@@ -1,7 +1,5 @@
 ;; -*- lexical-binding: t; -*-
 
-;;; This file is generated from the Emacs.org file in my dotfiles repository!
-
 ;;; Basic Configuration --------------------------------------------------------
 
 ;; Core settings
@@ -30,7 +28,16 @@
       global-auto-revert-non-file-buffers t
 
       ;; Silence compiler warnings as they can be pretty disruptive
-      native-comp-async-report-warnings-errors nil)
+      native-comp-async-report-warnings-errors nil
+
+      ;; Smooth-ish conservative scrolling for programming
+      scroll-conservatively 101
+      scroll-margin 2
+      scroll-step 1
+      scroll-preserve-screen-position t
+      auto-window-vscroll nil)
+
+
 
 ;; Core modes
 (repeat-mode 1)                ;; Enable repeating key maps
@@ -159,7 +166,10 @@
 ;; Set reusable font name variables
 ;; "JetBrainsMono Nerd Font Mono"
 ;; "ComicShannsMono Nerd Font Mono"
-(defvar my/fixed-width-font "ComicShannsMono Nerd Font Mono"
+;; "Fixedsys Excelsior"
+;; "Inconsolata Nerd Font"
+;; "BlexMono Nerd Font"
+(defvar my/fixed-width-font "Iosevka Nerd Font"
   "The font to use for monospaced (fixed width) text.")
 
 (defvar my/variable-width-font "Iosevka Aile"
@@ -178,7 +188,7 @@
   (set-face-attribute 'variable-pitch nil
                       :font my/variable-width-font
                       :weight 'normal
-                      :height 120)
+                      :height 140)
 
   ;; Make frames transparent
   ;; (set-frame-parameter (selected-frame) 'alpha '(99 . 99))
@@ -369,47 +379,131 @@
      (constant  "#29adff")  ;; Number, Constant, etc.
      )))
 
+(defun dw/apply-fallout2-style ()
+  (interactive)
+  (setopt modus-themes-italic-constructs t
+          modus-themes-bold-constructs t
+          modus-themes-common-palette-overrides
+          `((bg-main "#2C2C2C")
+            (bg-active bg-main)
+            (fg-main "#2CFF00")
+            (fg-active fg-main)
+
+            (fringe unspecified)
+            (border-mode-line-active unspecified)
+            (border-mode-line-inactive unspecified)
+
+            ;; Mode line / tabs
+            (fg-mode-line-active "#F0E46A")
+            (bg-mode-line-active "#2C2C2C")
+            (fg-mode-line-inactive "#8C8C8C")
+            (bg-mode-line-inactive "#1C1C1C")
+
+            (bg-tab-bar "#1C1C1C")
+            (bg-tab-current "#2C2C2C")
+            (bg-tab-other "#242424")
+
+            ;; Prompt / completion / region
+            (fg-prompt "#F0E46A")
+            (bg-prompt unspecified)
+            (bg-hover-secondary "#444444")
+            (bg-completion "#343434")
+            (fg-completion "#F0E46A")
+
+            (bg-region "#343434")
+            (fg-region "#F0E46A")
+
+            ;; Headings
+            (fg-heading-0 "#F0E46A")
+            (fg-heading-1 "#E4D85C")
+            (fg-heading-2 "#2CFF00")
+            (fg-heading-3 "#A4FCA4")
+            (fg-heading-4 "#D08C44")
+
+            ;; Prose / blocks
+            (fg-prose-verbatim "#A4FCA4")
+            (bg-prose-block-contents "#242424")
+            (fg-prose-block-delimiter "#6C6C6C")
+            (bg-prose-block-delimiter "#1C1C1C")
+
+            ;; Accent
+            (accent-1 "#F0E46A")
+
+            ;; Syntax
+            (keyword   "#F0E46A")
+            (builtin   "#D08C44")
+            (comment   "#6C6C6C")
+            (string    "#A4FCA4")
+            (fnname    "#2CFF00")
+            (type      "#A46834")
+            (variable  "#FCFC7C")
+            (docstring "#8C9B8C")
+            (constant  "#FC0000"))))
+
+(defgroup dw/theme nil
+  "Theme style configuration."
+  :group 'faces)
+
+(defcustom dw/theme-style 'pico8
+  "Theme style to apply."
+  :type '(choice
+          (const :tag "PICO-8" pico8)
+          (const :tag "Ayu Dark" ayu-dark)
+          (const :tag "Palenight" palenight)
+          (const :tag "fallout2" fallout2))
+  :group 'dw/theme)
+
+;;; Tab bar face customization for PICO-8 style
+(defun dw/apply-pico8-tab-bar-faces ()
+  "Apply PICO-8 styled tab-bar faces."
+  (modus-themes-with-colors
+    (set-face-attribute 'tab-bar nil
+                        :background bg-tab-bar
+                        :foreground fg-mode-line-active)
+    (set-face-attribute 'tab-bar-tab nil
+                        :background bg-tab-current
+                        :foreground accent-1
+                        :weight 'bold
+                        :box nil)
+    (set-face-attribute 'tab-bar-tab-inactive nil
+                        :background bg-tab-other
+                        :foreground accent-1
+                        :box nil)))
+
+(defun dw/apply-theme-style ()
+  "Apply the configured theme style."
+  (pcase dw/theme-style
+    ('pico8 (dw/apply-pico8-style))
+    ('ayu-dark (dw/apply-ayu-dark-style))
+    ('palenight (dw/apply-palenight-style))
+    ('fallout2 (dw/apply-fallout2-style))
+    (_ (error "Unknown theme style: %S" dw/theme-style))))
+
+(defun dw/apply-theme-style-extras ()
+  "Apply extra face adjustments for the configured theme style."
+  (pcase dw/theme-style
+    ('pico8
+     (dw/apply-pico8-tab-bar-faces))
+    (_ nil)))
+
 (use-package modus-themes
   :ensure nil
   :demand t
   :init
-  (dw/apply-pico8-style)
-  ;; (dw/apply-ayu-dark-style)
-  ;; (dw/apply-palenight-style)
+  (add-hook 'modus-themes-after-load-theme-hook #'dw/clear-background-color)
+  (add-hook 'modus-themes-after-load-theme-hook #'dw/apply-theme-style-extras)
+  (add-hook 'emacs-startup-hook #'dw/apply-theme-style-extras)
+  (dw/apply-theme-style)
+  (load-theme 'modus-vivendi-tinted t))
+
+(defun ww/reload-theme-style ()
+  "Reload the current Modus theme using `dw/theme-style'."
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes)
+  (dw/apply-theme-style)
   (load-theme 'modus-vivendi-tinted t)
-  (add-hook 'modus-themes-after-load-theme-hook #'dw/clear-background-color))
+  (dw/apply-theme-style-extras))
 
-;;; ----------------------------------------------------------------------------
-;;; Tab bar face customization for PICO-8 style
-;;; ----------------------------------------------------------------------------
-
-(with-eval-after-load 'modus-themes
-  (defun dw/pico8-tab-bar-faces ()
-    "Apply PICO-8 styled tab-bar faces after Modus loads."
-    (modus-themes-with-colors
-      ;; Entire tab bar
-      (set-face-attribute 'tab-bar nil
-                          :background bg-tab-bar
-                          :foreground fg-mode-line-active)
-
-      ;; Active tab
-      (set-face-attribute 'tab-bar-tab nil
-                          :background bg-tab-current
-                          :foreground accent-1
-                          :weight 'bold
-                          :box nil)
-
-      ;; Inactive tabs
-      (set-face-attribute 'tab-bar-tab-inactive nil
-                          :background bg-tab-other
-                          :foreground accent-1
-                          :box nil)))
-
-  ;; Re-apply after theme loads or switches
-  (add-hook 'modus-themes-after-load-theme-hook #'dw/pico8-tab-bar-faces)
-
-  ;; Ensure it applies on startup even if theme loads early
-  (add-hook 'emacs-startup-hook #'dw/pico8-tab-bar-faces))
 
 
 ;; Make vertical window separators look nicer in terminal Emacs
@@ -500,47 +594,86 @@ Opening and closing delimiters will have matching colors."
 
 ;; Special Buffers as Popup Window ---------------------------------------------
 
-(setq display-buffer-alist
-      '(("\\*\\(.*shell\\|.*term\\|.*eshell\\|help\\|compilation\\|Async Shell Command\\|Occur\\|xref\\).*\\*"
-        (display-buffer-reuse-window display-buffer-in-side-window)
-        (side . bottom)                  ; Popups go at the bottom
-        (slot . 0)                       ; Use the first slot at the bottom
-        (post-command-select-window . t) ; Select the window upon display
-        (window-height . 0.3))))         ; 30% of the frame height
 
-(defun dw/toggle-popup-window ()
+(defgroup ww/popup nil
+  "Popup window management."
+  :group 'windows)
+
+(defcustom ww/popup-window-height 0.3
+  "Height of popup windows as a fraction of the frame."
+  :type 'float
+  :group 'ww/popup)
+
+(defconst ww/popup-buffer-regexp
+  (concat
+   "\\*\\(?:"
+   ".*shell\\|"
+   ".*term\\|"
+   ".*eshell\\|"
+   "help\\|"
+   "compilation\\|"
+   "Async Shell Command\\|"
+   "Occur\\|"
+   "xref"
+   "\\).*\\*")
+  "Regexp matching buffers that should be displayed in the popup window.")
+
+(defconst ww/popup-display-rule
+  `(,ww/popup-buffer-regexp
+    (display-buffer-reuse-window display-buffer-in-side-window)
+    (side . bottom)
+    (slot . 0)
+    (window-height . ,ww/popup-window-height)
+    (preserve-size . (nil . t))
+    (post-command-select-window . t))
+  "Display rule for popup buffers.")
+
+(add-to-list 'display-buffer-alist ww/popup-display-rule)
+
+(defun ww/popup-buffer-p (buffer)
+  "Return non-nil if BUFFER should be treated as a popup buffer."
+  (with-current-buffer buffer
+    (or (string-match-p ww/popup-buffer-regexp (buffer-name buffer))
+        (derived-mode-p 'help-mode
+                        'compilation-mode
+                        'grep-mode
+                        'occur-mode
+                        'xref--xref-buffer-mode))))
+
+(defun ww/get-popup-window ()
+  "Return the current popup window, or nil if none exists."
+  (get-window-with-predicate
+   (lambda (window)
+     (eq (window-parameter window 'window-side) 'bottom))))
+
+(defun ww/get-latest-popup-buffer ()
+  "Return the most relevant popup buffer for the current context."
+  (or
+   (when-let ((project (project-current)))
+     (seq-find #'ww/popup-buffer-p (project-buffers project)))
+   (seq-find #'ww/popup-buffer-p (buffer-list (selected-frame)))))
+
+(defun ww/toggle-popup-window ()
+  "Toggle the popup window.
+
+If a popup window exists:
+- focus it when it is not selected
+- close it when it is already selected
+
+If no popup window exists, display the most recent popup buffer."
   (interactive)
-  (if-let ((popup-window
-            (get-window-with-predicate
-             (lambda (window)
-               (eq (window-parameter window 'window-side)
-                   'bottom)))))
-
-      ;; Focus the window if it is not selected, otherwise close it
+  (if-let ((popup-window (ww/get-popup-window)))
       (if (eq popup-window (selected-window))
           (delete-window popup-window)
         (select-window popup-window))
-
-    ;; Find the most recent buffer that matches the rule and show it
-    ;; NOTE: This logic is somewhat risky because it makes the assumption
-    ;;       that the popup rule comes first in `display-buffer-alist'.
-    ;;       I chose to do this because maintaining a separate variable
-    ;;       for this rule meant I had to re-evaluate 2 different forms
-    ;;       to update my rule list.
-    (if-let ((popup-buffer
-              (seq-find (lambda (buffer)
-                          (buffer-match-p (caar display-buffer-alist)
-                                          (buffer-name buffer)))
-                        (if (project-current)
-                            (project-buffers (project-current))
-                          (buffer-list (selected-frame))))))
-        (display-buffer popup-buffer (cdar display-buffer-alist))
+    (if-let ((popup-buffer (ww/get-latest-popup-buffer)))
+        (pop-to-buffer popup-buffer)
       (message "No popup buffers found."))))
 
-;; TODO: This binding may need to change
-(keymap-global-set "C-c p" #'dw/toggle-popup-window)
+(keymap-global-set "C-c p" #'ww/toggle-popup-window)
+
 (with-eval-after-load 'term
-  (keymap-set term-raw-map "C-c p" #'dw/toggle-popup-window))
+  (keymap-set term-raw-map "C-c p" #'ww/toggle-popup-window))
 
 ;;; Essential Org Mode Configuration -------------------------------------------
 
@@ -658,7 +791,7 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
 
 ;;; Dired ----------------------------------------------------------------------
 
-(defun dw/dired-mode-hook ()
+(defun ww/dired-mode-hook ()
   (interactive)
   ;; (dired-hide-details-mode 1)3
   (hl-line-mode 1))
@@ -676,7 +809,7 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
         dired-kill-when-opening-new-dired-buffer t
         delete-by-moving-to-trash t)
 
-  (add-hook 'dired-mode-hook #'dw/dired-mode-hook))
+  (add-hook 'dired-mode-hook #'ww/dired-mode-hook))
 
 ;; Make sure ripgrep is used everywhere
 (setq xref-search-program 'ripgrep
@@ -699,6 +832,7 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
     (tab-bar-mode 1)))
 
 ;;; Desktop Integration Config -------------------------------------------------
+
 ;; Integrate with the system clipboard
 (unless (display-graphic-p)
   (use-package xclip
@@ -708,7 +842,11 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
 
 ;; Pull in $PATH from the shell environment
 (use-package exec-path-from-shell
-  :init
+  :if (or (eq system-type 'darwin)
+          (daemonp))
+  :config
+  (dolist (var '("PATH" "MANPATH" "SSH_AUTH_SOCK" "LANG" "LC_ALL"))
+    (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
 ;; Enable which-key-mode globally
