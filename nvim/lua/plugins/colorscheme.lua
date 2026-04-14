@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "pico8",
+      colorscheme = "fallout2",
     },
   },
 }

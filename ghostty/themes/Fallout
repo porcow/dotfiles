@@ -1,26 +1,29 @@
-background = #2c2c2c
-foreground = #2cff00
+# Vault-CRT-Terminal (readability-tuned)
+# Fallout-style monochrome CRT, adjusted for real terminal ANSI usage.
 
-cursor-color = #2cff00
-cursor-text = #2c2c2c
+background = #282828
+foreground = #05A302
 
-selection-background = #2c2c2c
-selection-foreground = #f0e46a
+cursor-color = #3CF900
+cursor-text = #282828
 
-palette = 0=#202020
-palette = 1=#8c0000
-palette = 2=#2cc568
-palette = 3=#a48c30
-palette = 4=#2c6c8c
-palette = 5=#A46834
-palette = 6=#2c8c8c
-palette = 7=#a0a0a0
+selection-background = #214120
+selection-foreground = #3CF900
 
-palette = 8=#383838
-palette = 9=#fc0000
-palette = 10=#2cff00
-palette = 11=#e4d85c
-palette = 12=#6bbaff
-palette = 13=#D08C44
-palette = 14=#00c8c8
-palette = 15=#ececec
+palette = 0=#1C1C1C
+palette = 1=#686868
+palette = 2=#348234
+palette = 3=#05A302
+palette = 4=#6B736B
+palette = 5=#747474
+palette = 6=#467F40
+palette = 7=#8A8A8A
+
+palette = 8=#5C5C5C
+palette = 9=#808080
+palette = 10=#05A302
+palette = 11=#3CF900
+palette = 12=#8C938C
+palette = 13=#949494
+palette = 14=#5FCF49
+palette = 15=#B8B8B8

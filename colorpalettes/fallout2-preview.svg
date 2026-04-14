@@ -1,0 +1,1375 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1348" height="6324" viewBox="0 0 1348 6324" role="img" aria-labelledby="title desc">
+  <title id="title">Fallout 2 ACO Palette Preview</title>
+  <desc id="desc">Preview of colors parsed from colorpalettes/fallout2.aco with swatches and hex codes.</desc>
+  <defs>
+    <style>
+      .title { font: 700 34px "SF Mono", "Iosevka", monospace; fill: #ececec; }
+      .meta { font: 400 16px "SF Mono", "Iosevka", monospace; fill: #a0a0a0; }
+      .name { font: 600 16px "SF Mono", "Iosevka", monospace; fill: #ececec; }
+      .hex { font: 400 15px "SF Mono", "Iosevka", monospace; fill: #c8c8c8; }
+      .dark { fill: #101010; }
+      .frame { fill: #141414; stroke: #343434; stroke-width: 2; }
+      .stroke { fill: none; stroke: rgba(255,255,255,0.14); stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1348" height="6324" fill="#0b0b0b"/>
+  <rect x="20" y="20" width="1308" height="6284" rx="24" class="frame"/>
+  <text x="44" y="72" class="title">Fallout 2 ACO Palette</text>
+  <text x="44" y="102" class="meta">Source: colorpalettes/fallout2.aco · 226 RGB swatches</text>
+  <g transform="translate(44 144)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#0000ff"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">transparency</text>
+    <text x="18" y="58" class="hex">#0000ff</text>
+  </g>
+  <g transform="translate(364 144)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#ececec"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 2</text>
+    <text x="18" y="58" class="dark">#ececec</text>
+  </g>
+  <g transform="translate(684 144)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#dcdcdc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 3</text>
+    <text x="18" y="58" class="dark">#dcdcdc</text>
+  </g>
+  <g transform="translate(1004 144)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#cccccc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 4</text>
+    <text x="18" y="58" class="dark">#cccccc</text>
+  </g>
+  <g transform="translate(44 252)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#bcbcbc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 5</text>
+    <text x="18" y="58" class="dark">#bcbcbc</text>
+  </g>
+  <g transform="translate(364 252)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#b0b0b0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 6</text>
+    <text x="18" y="58" class="dark">#b0b0b0</text>
+  </g>
+  <g transform="translate(684 252)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#a0a0a0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 7</text>
+    <text x="18" y="58" class="dark">#a0a0a0</text>
+  </g>
+  <g transform="translate(1004 252)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#909090"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 8</text>
+    <text x="18" y="58" class="hex">#909090</text>
+  </g>
+  <g transform="translate(44 360)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#808080"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 9</text>
+    <text x="18" y="58" class="hex">#808080</text>
+  </g>
+  <g transform="translate(364 360)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#646464"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 10</text>
+    <text x="18" y="58" class="hex">#646464</text>
+  </g>
+  <g transform="translate(684 360)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#545454"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 11</text>
+    <text x="18" y="58" class="hex">#545454</text>
+  </g>
+  <g transform="translate(1004 360)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#484848"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 12</text>
+    <text x="18" y="58" class="hex">#484848</text>
+  </g>
+  <g transform="translate(44 468)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#383838"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 13</text>
+    <text x="18" y="58" class="hex">#383838</text>
+  </g>
+  <g transform="translate(364 468)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#282828"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 14</text>
+    <text x="18" y="58" class="hex">#282828</text>
+  </g>
+  <g transform="translate(684 468)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#202020"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 15</text>
+    <text x="18" y="58" class="hex">#202020</text>
+  </g>
+  <g transform="translate(1004 468)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fcecec"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 16</text>
+    <text x="18" y="58" class="dark">#fcecec</text>
+  </g>
+  <g transform="translate(44 576)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#ecd8d8"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 17</text>
+    <text x="18" y="58" class="dark">#ecd8d8</text>
+  </g>
+  <g transform="translate(364 576)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#dcc4c4"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 18</text>
+    <text x="18" y="58" class="dark">#dcc4c4</text>
+  </g>
+  <g transform="translate(684 576)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#d0b0b0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 19</text>
+    <text x="18" y="58" class="dark">#d0b0b0</text>
+  </g>
+  <g transform="translate(1004 576)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#c0a0a0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 20</text>
+    <text x="18" y="58" class="dark">#c0a0a0</text>
+  </g>
+  <g transform="translate(44 684)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#b09090"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 21</text>
+    <text x="18" y="58" class="dark">#b09090</text>
+  </g>
+  <g transform="translate(364 684)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#a48080"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 22</text>
+    <text x="18" y="58" class="hex">#a48080</text>
+  </g>
+  <g transform="translate(684 684)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#947070"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 23</text>
+    <text x="18" y="58" class="hex">#947070</text>
+  </g>
+  <g transform="translate(1004 684)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#846060"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 24</text>
+    <text x="18" y="58" class="hex">#846060</text>
+  </g>
+  <g transform="translate(44 792)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#785454"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 25</text>
+    <text x="18" y="58" class="hex">#785454</text>
+  </g>
+  <g transform="translate(364 792)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#684444"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 26</text>
+    <text x="18" y="58" class="hex">#684444</text>
+  </g>
+  <g transform="translate(684 792)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#583838"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 27</text>
+    <text x="18" y="58" class="hex">#583838</text>
+  </g>
+  <g transform="translate(1004 792)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#4c2c2c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 28</text>
+    <text x="18" y="58" class="hex">#4c2c2c</text>
+  </g>
+  <g transform="translate(44 900)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#3c2323"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 29</text>
+    <text x="18" y="58" class="hex">#3c2323</text>
+  </g>
+  <g transform="translate(364 900)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#2c1818"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 30</text>
+    <text x="18" y="58" class="hex">#2c1818</text>
+  </g>
+  <g transform="translate(684 900)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#201010"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 31</text>
+    <text x="18" y="58" class="hex">#201010</text>
+  </g>
+  <g transform="translate(1004 900)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#ececfc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 32</text>
+    <text x="18" y="58" class="dark">#ececfc</text>
+  </g>
+  <g transform="translate(44 1008)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#d8d8ec"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 33</text>
+    <text x="18" y="58" class="dark">#d8d8ec</text>
+  </g>
+  <g transform="translate(364 1008)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#c4c4dc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 34</text>
+    <text x="18" y="58" class="dark">#c4c4dc</text>
+  </g>
+  <g transform="translate(684 1008)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#b0b0d0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 35</text>
+    <text x="18" y="58" class="dark">#b0b0d0</text>
+  </g>
+  <g transform="translate(1004 1008)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#a0a0c0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 36</text>
+    <text x="18" y="58" class="dark">#a0a0c0</text>
+  </g>
+  <g transform="translate(44 1116)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#9090b0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 37</text>
+    <text x="18" y="58" class="hex">#9090b0</text>
+  </g>
+  <g transform="translate(364 1116)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#8080a4"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 38</text>
+    <text x="18" y="58" class="hex">#8080a4</text>
+  </g>
+  <g transform="translate(684 1116)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#707094"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 39</text>
+    <text x="18" y="58" class="hex">#707094</text>
+  </g>
+  <g transform="translate(1004 1116)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#606084"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 40</text>
+    <text x="18" y="58" class="hex">#606084</text>
+  </g>
+  <g transform="translate(44 1224)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#545478"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 41</text>
+    <text x="18" y="58" class="hex">#545478</text>
+  </g>
+  <g transform="translate(364 1224)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#444468"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 42</text>
+    <text x="18" y="58" class="hex">#444468</text>
+  </g>
+  <g transform="translate(684 1224)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#383858"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 43</text>
+    <text x="18" y="58" class="hex">#383858</text>
+  </g>
+  <g transform="translate(1004 1224)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#2c2c4c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 44</text>
+    <text x="18" y="58" class="hex">#2c2c4c</text>
+  </g>
+  <g transform="translate(44 1332)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#24243c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 45</text>
+    <text x="18" y="58" class="hex">#24243c</text>
+  </g>
+  <g transform="translate(364 1332)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#18182c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 46</text>
+    <text x="18" y="58" class="hex">#18182c</text>
+  </g>
+  <g transform="translate(684 1332)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#101020"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 47</text>
+    <text x="18" y="58" class="hex">#101020</text>
+  </g>
+  <g transform="translate(1004 1332)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fcb0f0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 48</text>
+    <text x="18" y="58" class="dark">#fcb0f0</text>
+  </g>
+  <g transform="translate(44 1440)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#c460a8"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 49</text>
+    <text x="18" y="58" class="hex">#c460a8</text>
+  </g>
+  <g transform="translate(364 1440)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#682460"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 50</text>
+    <text x="18" y="58" class="hex">#682460</text>
+  </g>
+  <g transform="translate(684 1440)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#4c1448"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 51</text>
+    <text x="18" y="58" class="hex">#4c1448</text>
+  </g>
+  <g transform="translate(1004 1440)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#380c34"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 52</text>
+    <text x="18" y="58" class="hex">#380c34</text>
+  </g>
+  <g transform="translate(44 1548)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#281024"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 53</text>
+    <text x="18" y="58" class="hex">#281024</text>
+  </g>
+  <g transform="translate(364 1548)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#240424"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 54</text>
+    <text x="18" y="58" class="hex">#240424</text>
+  </g>
+  <g transform="translate(684 1548)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#1c0c18"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 55</text>
+    <text x="18" y="58" class="hex">#1c0c18</text>
+  </g>
+  <g transform="translate(1004 1548)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fcfcc8"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 56</text>
+    <text x="18" y="58" class="dark">#fcfcc8</text>
+  </g>
+  <g transform="translate(44 1656)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fcfc7c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 57</text>
+    <text x="18" y="58" class="dark">#fcfc7c</text>
+  </g>
+  <g transform="translate(364 1656)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#e4d80c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 58</text>
+    <text x="18" y="58" class="dark">#e4d80c</text>
+  </g>
+  <g transform="translate(684 1656)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#ccb81c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 59</text>
+    <text x="18" y="58" class="dark">#ccb81c</text>
+  </g>
+  <g transform="translate(1004 1656)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#b89c28"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 60</text>
+    <text x="18" y="58" class="dark">#b89c28</text>
+  </g>
+  <g transform="translate(44 1764)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#a48830"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 61</text>
+    <text x="18" y="58" class="hex">#a48830</text>
+  </g>
+  <g transform="translate(364 1764)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#907824"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 62</text>
+    <text x="18" y="58" class="hex">#907824</text>
+  </g>
+  <g transform="translate(684 1764)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#7c6818"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 63</text>
+    <text x="18" y="58" class="hex">#7c6818</text>
+  </g>
+  <g transform="translate(1004 1764)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#6c5810"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 64</text>
+    <text x="18" y="58" class="hex">#6c5810</text>
+  </g>
+  <g transform="translate(44 1872)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#584808"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 65</text>
+    <text x="18" y="58" class="hex">#584808</text>
+  </g>
+  <g transform="translate(364 1872)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#483804"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 66</text>
+    <text x="18" y="58" class="hex">#483804</text>
+  </g>
+  <g transform="translate(684 1872)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#342800"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 67</text>
+    <text x="18" y="58" class="hex">#342800</text>
+  </g>
+  <g transform="translate(1004 1872)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#201800"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 68</text>
+    <text x="18" y="58" class="hex">#201800</text>
+  </g>
+  <g transform="translate(44 1980)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#d8fc9c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 69</text>
+    <text x="18" y="58" class="dark">#d8fc9c</text>
+  </g>
+  <g transform="translate(364 1980)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#b4d884"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 70</text>
+    <text x="18" y="58" class="dark">#b4d884</text>
+  </g>
+  <g transform="translate(684 1980)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#98b870"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 71</text>
+    <text x="18" y="58" class="dark">#98b870</text>
+  </g>
+  <g transform="translate(1004 1980)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#78985c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 72</text>
+    <text x="18" y="58" class="hex">#78985c</text>
+  </g>
+  <g transform="translate(44 2088)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#5c7848"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 73</text>
+    <text x="18" y="58" class="hex">#5c7848</text>
+  </g>
+  <g transform="translate(364 2088)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#405834"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 74</text>
+    <text x="18" y="58" class="hex">#405834</text>
+  </g>
+  <g transform="translate(684 2088)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#283820"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 75</text>
+    <text x="18" y="58" class="hex">#283820</text>
+  </g>
+  <g transform="translate(1004 2088)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#706050"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 76</text>
+    <text x="18" y="58" class="hex">#706050</text>
+  </g>
+  <g transform="translate(44 2196)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#544834"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 77</text>
+    <text x="18" y="58" class="hex">#544834</text>
+  </g>
+  <g transform="translate(364 2196)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#383020"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 78</text>
+    <text x="18" y="58" class="hex">#383020</text>
+  </g>
+  <g transform="translate(684 2196)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#687850"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 79</text>
+    <text x="18" y="58" class="hex">#687850</text>
+  </g>
+  <g transform="translate(1004 2196)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#707820"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 80</text>
+    <text x="18" y="58" class="hex">#707820</text>
+  </g>
+  <g transform="translate(44 2304)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#706828"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 81</text>
+    <text x="18" y="58" class="hex">#706828</text>
+  </g>
+  <g transform="translate(364 2304)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#606024"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 82</text>
+    <text x="18" y="58" class="hex">#606024</text>
+  </g>
+  <g transform="translate(684 2304)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#4c4424"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 83</text>
+    <text x="18" y="58" class="hex">#4c4424</text>
+  </g>
+  <g transform="translate(1004 2304)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#383020"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 84</text>
+    <text x="18" y="58" class="hex">#383020</text>
+  </g>
+  <g transform="translate(44 2412)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#9cac9c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 85</text>
+    <text x="18" y="58" class="dark">#9cac9c</text>
+  </g>
+  <g transform="translate(364 2412)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#789478"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 86</text>
+    <text x="18" y="58" class="hex">#789478</text>
+  </g>
+  <g transform="translate(684 2412)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#587c58"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 87</text>
+    <text x="18" y="58" class="hex">#587c58</text>
+  </g>
+  <g transform="translate(1004 2412)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#406840"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 88</text>
+    <text x="18" y="58" class="hex">#406840</text>
+  </g>
+  <g transform="translate(44 2520)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#385858"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 89</text>
+    <text x="18" y="58" class="hex">#385858</text>
+  </g>
+  <g transform="translate(364 2520)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#304c48"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 90</text>
+    <text x="18" y="58" class="hex">#304c48</text>
+  </g>
+  <g transform="translate(684 2520)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#28443c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 91</text>
+    <text x="18" y="58" class="hex">#28443c</text>
+  </g>
+  <g transform="translate(1004 2520)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#203c2c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 92</text>
+    <text x="18" y="58" class="hex">#203c2c</text>
+  </g>
+  <g transform="translate(44 2628)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#1c3024"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 93</text>
+    <text x="18" y="58" class="hex">#1c3024</text>
+  </g>
+  <g transform="translate(364 2628)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#142818"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 94</text>
+    <text x="18" y="58" class="hex">#142818</text>
+  </g>
+  <g transform="translate(684 2628)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#102010"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 95</text>
+    <text x="18" y="58" class="hex">#102010</text>
+  </g>
+  <g transform="translate(1004 2628)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#183018"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 96</text>
+    <text x="18" y="58" class="hex">#183018</text>
+  </g>
+  <g transform="translate(44 2736)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#10240c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 97</text>
+    <text x="18" y="58" class="hex">#10240c</text>
+  </g>
+  <g transform="translate(364 2736)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#081c04"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 98</text>
+    <text x="18" y="58" class="hex">#081c04</text>
+  </g>
+  <g transform="translate(684 2736)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#041400"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 99</text>
+    <text x="18" y="58" class="hex">#041400</text>
+  </g>
+  <g transform="translate(1004 2736)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#040c00"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 100</text>
+    <text x="18" y="58" class="hex">#040c00</text>
+  </g>
+  <g transform="translate(44 2844)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#8c9c9c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 101</text>
+    <text x="18" y="58" class="dark">#8c9c9c</text>
+  </g>
+  <g transform="translate(364 2844)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#789498"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 102</text>
+    <text x="18" y="58" class="hex">#789498</text>
+  </g>
+  <g transform="translate(684 2844)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#648894"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 103</text>
+    <text x="18" y="58" class="hex">#648894</text>
+  </g>
+  <g transform="translate(1004 2844)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#507c90"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 104</text>
+    <text x="18" y="58" class="hex">#507c90</text>
+  </g>
+  <g transform="translate(44 2952)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#406c8c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 105</text>
+    <text x="18" y="58" class="hex">#406c8c</text>
+  </g>
+  <g transform="translate(364 2952)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#30588c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 106</text>
+    <text x="18" y="58" class="hex">#30588c</text>
+  </g>
+  <g transform="translate(684 2952)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#28446c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 107</text>
+    <text x="18" y="58" class="hex">#28446c</text>
+  </g>
+  <g transform="translate(1004 2952)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#20385c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 108</text>
+    <text x="18" y="58" class="hex">#20385c</text>
+  </g>
+  <g transform="translate(44 3060)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#1c304c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 109</text>
+    <text x="18" y="58" class="hex">#1c304c</text>
+  </g>
+  <g transform="translate(364 3060)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#182840"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 110</text>
+    <text x="18" y="58" class="hex">#182840</text>
+  </g>
+  <g transform="translate(684 3060)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#9ca4a4"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 111</text>
+    <text x="18" y="58" class="dark">#9ca4a4</text>
+  </g>
+  <g transform="translate(1004 3060)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#384868"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 112</text>
+    <text x="18" y="58" class="hex">#384868</text>
+  </g>
+  <g transform="translate(44 3168)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#505858"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 113</text>
+    <text x="18" y="58" class="hex">#505858</text>
+  </g>
+  <g transform="translate(364 3168)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#586884"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 114</text>
+    <text x="18" y="58" class="hex">#586884</text>
+  </g>
+  <g transform="translate(684 3168)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#344050"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 115</text>
+    <text x="18" y="58" class="hex">#344050</text>
+  </g>
+  <g transform="translate(1004 3168)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#bcbcbc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 116</text>
+    <text x="18" y="58" class="dark">#bcbcbc</text>
+  </g>
+  <g transform="translate(44 3276)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#aca498"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 117</text>
+    <text x="18" y="58" class="dark">#aca498</text>
+  </g>
+  <g transform="translate(364 3276)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#a0907c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 118</text>
+    <text x="18" y="58" class="hex">#a0907c</text>
+  </g>
+  <g transform="translate(684 3276)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#947c60"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 119</text>
+    <text x="18" y="58" class="hex">#947c60</text>
+  </g>
+  <g transform="translate(1004 3276)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#88684c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 120</text>
+    <text x="18" y="58" class="hex">#88684c</text>
+  </g>
+  <g transform="translate(44 3384)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#7c5834"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 121</text>
+    <text x="18" y="58" class="hex">#7c5834</text>
+  </g>
+  <g transform="translate(364 3384)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#704824"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 122</text>
+    <text x="18" y="58" class="hex">#704824</text>
+  </g>
+  <g transform="translate(684 3384)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#643c14"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 123</text>
+    <text x="18" y="58" class="hex">#643c14</text>
+  </g>
+  <g transform="translate(1004 3384)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#583008"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 124</text>
+    <text x="18" y="58" class="hex">#583008</text>
+  </g>
+  <g transform="translate(44 3492)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fccccc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 125</text>
+    <text x="18" y="58" class="dark">#fccccc</text>
+  </g>
+  <g transform="translate(364 3492)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fcb0b0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 126</text>
+    <text x="18" y="58" class="dark">#fcb0b0</text>
+  </g>
+  <g transform="translate(684 3492)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc9898"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 127</text>
+    <text x="18" y="58" class="dark">#fc9898</text>
+  </g>
+  <g transform="translate(1004 3492)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc7c7c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 128</text>
+    <text x="18" y="58" class="dark">#fc7c7c</text>
+  </g>
+  <g transform="translate(44 3600)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc6464"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 129</text>
+    <text x="18" y="58" class="hex">#fc6464</text>
+  </g>
+  <g transform="translate(364 3600)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc4848"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 130</text>
+    <text x="18" y="58" class="hex">#fc4848</text>
+  </g>
+  <g transform="translate(684 3600)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc3030"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 131</text>
+    <text x="18" y="58" class="hex">#fc3030</text>
+  </g>
+  <g transform="translate(1004 3600)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc0000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 132</text>
+    <text x="18" y="58" class="hex">#fc0000</text>
+  </g>
+  <g transform="translate(44 3708)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#e00000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 133</text>
+    <text x="18" y="58" class="hex">#e00000</text>
+  </g>
+  <g transform="translate(364 3708)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#c40000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 134</text>
+    <text x="18" y="58" class="hex">#c40000</text>
+  </g>
+  <g transform="translate(684 3708)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#a80000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 135</text>
+    <text x="18" y="58" class="hex">#a80000</text>
+  </g>
+  <g transform="translate(1004 3708)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#900000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 136</text>
+    <text x="18" y="58" class="hex">#900000</text>
+  </g>
+  <g transform="translate(44 3816)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#740000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 137</text>
+    <text x="18" y="58" class="hex">#740000</text>
+  </g>
+  <g transform="translate(364 3816)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#580000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 138</text>
+    <text x="18" y="58" class="hex">#580000</text>
+  </g>
+  <g transform="translate(684 3816)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#400000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 139</text>
+    <text x="18" y="58" class="hex">#400000</text>
+  </g>
+  <g transform="translate(1004 3816)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fce0c8"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 140</text>
+    <text x="18" y="58" class="dark">#fce0c8</text>
+  </g>
+  <g transform="translate(44 3924)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fcc494"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 141</text>
+    <text x="18" y="58" class="dark">#fcc494</text>
+  </g>
+  <g transform="translate(364 3924)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fcb878"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 142</text>
+    <text x="18" y="58" class="dark">#fcb878</text>
+  </g>
+  <g transform="translate(684 3924)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fcac60"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 143</text>
+    <text x="18" y="58" class="dark">#fcac60</text>
+  </g>
+  <g transform="translate(1004 3924)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc9c48"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 144</text>
+    <text x="18" y="58" class="dark">#fc9c48</text>
+  </g>
+  <g transform="translate(44 4032)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc942c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 145</text>
+    <text x="18" y="58" class="dark">#fc942c</text>
+  </g>
+  <g transform="translate(364 4032)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc8814"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 146</text>
+    <text x="18" y="58" class="dark">#fc8814</text>
+  </g>
+  <g transform="translate(684 4032)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fc7c00"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 147</text>
+    <text x="18" y="58" class="hex">#fc7c00</text>
+  </g>
+  <g transform="translate(1004 4032)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#dc6c00"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 148</text>
+    <text x="18" y="58" class="hex">#dc6c00</text>
+  </g>
+  <g transform="translate(44 4140)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#c06000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 149</text>
+    <text x="18" y="58" class="hex">#c06000</text>
+  </g>
+  <g transform="translate(364 4140)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#a45000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 150</text>
+    <text x="18" y="58" class="hex">#a45000</text>
+  </g>
+  <g transform="translate(684 4140)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#844400"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 151</text>
+    <text x="18" y="58" class="hex">#844400</text>
+  </g>
+  <g transform="translate(1004 4140)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#683400"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 152</text>
+    <text x="18" y="58" class="hex">#683400</text>
+  </g>
+  <g transform="translate(44 4248)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#4c2400"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 153</text>
+    <text x="18" y="58" class="hex">#4c2400</text>
+  </g>
+  <g transform="translate(364 4248)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#301800"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 154</text>
+    <text x="18" y="58" class="hex">#301800</text>
+  </g>
+  <g transform="translate(684 4248)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#f8d4a4"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 155</text>
+    <text x="18" y="58" class="dark">#f8d4a4</text>
+  </g>
+  <g transform="translate(1004 4248)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#d8b078"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 156</text>
+    <text x="18" y="58" class="dark">#d8b078</text>
+  </g>
+  <g transform="translate(44 4356)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#c8a064"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 157</text>
+    <text x="18" y="58" class="dark">#c8a064</text>
+  </g>
+  <g transform="translate(364 4356)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#bc9054"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 158</text>
+    <text x="18" y="58" class="hex">#bc9054</text>
+  </g>
+  <g transform="translate(684 4356)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#ac8044"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 159</text>
+    <text x="18" y="58" class="hex">#ac8044</text>
+  </g>
+  <g transform="translate(1004 4356)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#9c7434"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 160</text>
+    <text x="18" y="58" class="hex">#9c7434</text>
+  </g>
+  <g transform="translate(44 4464)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#8c6428"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 161</text>
+    <text x="18" y="58" class="hex">#8c6428</text>
+  </g>
+  <g transform="translate(364 4464)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#7c581c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 162</text>
+    <text x="18" y="58" class="hex">#7c581c</text>
+  </g>
+  <g transform="translate(684 4464)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#704c14"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 163</text>
+    <text x="18" y="58" class="hex">#704c14</text>
+  </g>
+  <g transform="translate(1004 4464)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#604008"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 164</text>
+    <text x="18" y="58" class="hex">#604008</text>
+  </g>
+  <g transform="translate(44 4572)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#503404"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 165</text>
+    <text x="18" y="58" class="hex">#503404</text>
+  </g>
+  <g transform="translate(364 4572)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#402800"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 166</text>
+    <text x="18" y="58" class="hex">#402800</text>
+  </g>
+  <g transform="translate(684 4572)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#342000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 167</text>
+    <text x="18" y="58" class="hex">#342000</text>
+  </g>
+  <g transform="translate(1004 4572)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fce4b8"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 168</text>
+    <text x="18" y="58" class="dark">#fce4b8</text>
+  </g>
+  <g transform="translate(44 4680)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#e8c898"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 169</text>
+    <text x="18" y="58" class="dark">#e8c898</text>
+  </g>
+  <g transform="translate(364 4680)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#d4ac7c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 170</text>
+    <text x="18" y="58" class="dark">#d4ac7c</text>
+  </g>
+  <g transform="translate(684 4680)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#c49064"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 171</text>
+    <text x="18" y="58" class="dark">#c49064</text>
+  </g>
+  <g transform="translate(1004 4680)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#b0744c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 172</text>
+    <text x="18" y="58" class="hex">#b0744c</text>
+  </g>
+  <g transform="translate(44 4788)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#a05c38"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 173</text>
+    <text x="18" y="58" class="hex">#a05c38</text>
+  </g>
+  <g transform="translate(364 4788)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#904c2c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 174</text>
+    <text x="18" y="58" class="hex">#904c2c</text>
+  </g>
+  <g transform="translate(684 4788)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#843c20"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 175</text>
+    <text x="18" y="58" class="hex">#843c20</text>
+  </g>
+  <g transform="translate(1004 4788)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#782c18"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 176</text>
+    <text x="18" y="58" class="hex">#782c18</text>
+  </g>
+  <g transform="translate(44 4896)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#6c2010"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 177</text>
+    <text x="18" y="58" class="hex">#6c2010</text>
+  </g>
+  <g transform="translate(364 4896)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#5c1408"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 178</text>
+    <text x="18" y="58" class="hex">#5c1408</text>
+  </g>
+  <g transform="translate(684 4896)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#480c04"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 179</text>
+    <text x="18" y="58" class="hex">#480c04</text>
+  </g>
+  <g transform="translate(1004 4896)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#3c0400"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 180</text>
+    <text x="18" y="58" class="hex">#3c0400</text>
+  </g>
+  <g transform="translate(44 5004)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fce8dc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 181</text>
+    <text x="18" y="58" class="dark">#fce8dc</text>
+  </g>
+  <g transform="translate(364 5004)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#f8d4bc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 182</text>
+    <text x="18" y="58" class="dark">#f8d4bc</text>
+  </g>
+  <g transform="translate(684 5004)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#f4c0a0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 183</text>
+    <text x="18" y="58" class="dark">#f4c0a0</text>
+  </g>
+  <g transform="translate(1004 5004)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#f0b084"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 184</text>
+    <text x="18" y="58" class="dark">#f0b084</text>
+  </g>
+  <g transform="translate(44 5112)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#f0a06c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 185</text>
+    <text x="18" y="58" class="dark">#f0a06c</text>
+  </g>
+  <g transform="translate(364 5112)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#f0945c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 186</text>
+    <text x="18" y="58" class="dark">#f0945c</text>
+  </g>
+  <g transform="translate(684 5112)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#d88054"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 187</text>
+    <text x="18" y="58" class="hex">#d88054</text>
+  </g>
+  <g transform="translate(1004 5112)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#c07048"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 188</text>
+    <text x="18" y="58" class="hex">#c07048</text>
+  </g>
+  <g transform="translate(44 5220)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#a86040"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 189</text>
+    <text x="18" y="58" class="hex">#a86040</text>
+  </g>
+  <g transform="translate(364 5220)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#905038"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 190</text>
+    <text x="18" y="58" class="hex">#905038</text>
+  </g>
+  <g transform="translate(684 5220)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#784030"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 191</text>
+    <text x="18" y="58" class="hex">#784030</text>
+  </g>
+  <g transform="translate(1004 5220)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#603024"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 192</text>
+    <text x="18" y="58" class="hex">#603024</text>
+  </g>
+  <g transform="translate(44 5328)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#48241c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 193</text>
+    <text x="18" y="58" class="hex">#48241c</text>
+  </g>
+  <g transform="translate(364 5328)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#381814"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 194</text>
+    <text x="18" y="58" class="hex">#381814</text>
+  </g>
+  <g transform="translate(684 5328)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#64e464"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 195</text>
+    <text x="18" y="58" class="dark">#64e464</text>
+  </g>
+  <g transform="translate(1004 5328)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#149814"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 196</text>
+    <text x="18" y="58" class="hex">#149814</text>
+  </g>
+  <g transform="translate(44 5436)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#00a400"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 197</text>
+    <text x="18" y="58" class="hex">#00a400</text>
+  </g>
+  <g transform="translate(364 5436)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#505048"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 198</text>
+    <text x="18" y="58" class="hex">#505048</text>
+  </g>
+  <g transform="translate(684 5436)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#006c00"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 199</text>
+    <text x="18" y="58" class="hex">#006c00</text>
+  </g>
+  <g transform="translate(1004 5436)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#8c8c84"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 200</text>
+    <text x="18" y="58" class="hex">#8c8c84</text>
+  </g>
+  <g transform="translate(44 5544)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#1c1c1c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 201</text>
+    <text x="18" y="58" class="hex">#1c1c1c</text>
+  </g>
+  <g transform="translate(364 5544)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#685038"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 202</text>
+    <text x="18" y="58" class="hex">#685038</text>
+  </g>
+  <g transform="translate(684 5544)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#302820"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 203</text>
+    <text x="18" y="58" class="hex">#302820</text>
+  </g>
+  <g transform="translate(1004 5544)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#8c7060"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 204</text>
+    <text x="18" y="58" class="hex">#8c7060</text>
+  </g>
+  <g transform="translate(44 5652)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#483828"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 205</text>
+    <text x="18" y="58" class="hex">#483828</text>
+  </g>
+  <g transform="translate(364 5652)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#0c0c0c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 206</text>
+    <text x="18" y="58" class="hex">#0c0c0c</text>
+  </g>
+  <g transform="translate(684 5652)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#3c3c3c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 207</text>
+    <text x="18" y="58" class="hex">#3c3c3c</text>
+  </g>
+  <g transform="translate(1004 5652)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#6c746c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 208</text>
+    <text x="18" y="58" class="hex">#6c746c</text>
+  </g>
+  <g transform="translate(44 5760)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#788478"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 209</text>
+    <text x="18" y="58" class="hex">#788478</text>
+  </g>
+  <g transform="translate(364 5760)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#889488"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 210</text>
+    <text x="18" y="58" class="hex">#889488</text>
+  </g>
+  <g transform="translate(684 5760)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#94a494"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 211</text>
+    <text x="18" y="58" class="dark">#94a494</text>
+  </g>
+  <g transform="translate(1004 5760)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#586860"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 212</text>
+    <text x="18" y="58" class="hex">#586860</text>
+  </g>
+  <g transform="translate(44 5868)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#607068"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 213</text>
+    <text x="18" y="58" class="hex">#607068</text>
+  </g>
+  <g transform="translate(364 5868)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#3cf800"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 214</text>
+    <text x="18" y="58" class="dark">#3cf800</text>
+  </g>
+  <g transform="translate(684 5868)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#38d408"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 215</text>
+    <text x="18" y="58" class="dark">#38d408</text>
+  </g>
+  <g transform="translate(1004 5868)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#34b410"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 216</text>
+    <text x="18" y="58" class="hex">#34b410</text>
+  </g>
+  <g transform="translate(44 5976)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#309414"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 217</text>
+    <text x="18" y="58" class="hex">#309414</text>
+  </g>
+  <g transform="translate(364 5976)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#287418"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 218</text>
+    <text x="18" y="58" class="hex">#287418</text>
+  </g>
+  <g transform="translate(684 5976)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#fcfcfc"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 219</text>
+    <text x="18" y="58" class="dark">#fcfcfc</text>
+  </g>
+  <g transform="translate(1004 5976)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#f0ecd0"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 220</text>
+    <text x="18" y="58" class="dark">#f0ecd0</text>
+  </g>
+  <g transform="translate(44 6084)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#d0b888"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="dark">Swatch 221</text>
+    <text x="18" y="58" class="dark">#d0b888</text>
+  </g>
+  <g transform="translate(364 6084)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#987c50"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 222</text>
+    <text x="18" y="58" class="hex">#987c50</text>
+  </g>
+  <g transform="translate(684 6084)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#504024"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 223</text>
+    <text x="18" y="58" class="hex">#504024</text>
+  </g>
+  <g transform="translate(1004 6084)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#34281c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 224</text>
+    <text x="18" y="58" class="hex">#34281c</text>
+  </g>
+  <g transform="translate(44 6192)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#18100c"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 225</text>
+    <text x="18" y="58" class="hex">#18100c</text>
+  </g>
+  <g transform="translate(364 6192)">
+    <rect x="0" y="0" width="300" height="88" rx="16" fill="#000000"/>
+    <rect x="0" y="0" width="300" height="88" rx="16" class="stroke"/>
+    <text x="18" y="34" class="name">Swatch 226</text>
+    <text x="18" y="58" class="hex">#000000</text>
+  </g>
+</svg>

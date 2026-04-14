@@ -35,9 +35,9 @@
       scroll-margin 2
       scroll-step 1
       scroll-preserve-screen-position t
-      auto-window-vscroll nil)
-
-
+      auto-window-vscroll nil
+      global-hl-line-sticky-flag nil
+      )
 
 ;; Core modes
 (repeat-mode 1)                ;; Enable repeating key maps
@@ -52,6 +52,7 @@
 (auto-save-visited-mode 1)     ;; Auto-save files at an interval
 (global-visual-line-mode 1)    ;; Visually wrap long lines in all buffers
 (global-auto-revert-mode 1)    ;; Refresh buffers with changed local files
+(global-hl-line-mode 1)
 
 ;; Tabs to spaces
 (setq-default indent-tabs-mode nil
@@ -67,6 +68,16 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file t))
+
+(defun ww/reload-config ()
+  "Reload the current Emacs configuration entrypoint."
+  (interactive)
+  (if (and user-init-file (file-readable-p user-init-file))
+      (progn
+        (load-file user-init-file)
+        (ww/reload-theme-style)
+        (message "Reloaded %s" user-init-file))
+    (user-error "user-init-file is not set or not readable")))
 
 ;; Match completion substrings that may be out of order
 (defun dw/override-fido-completion-styles ()
@@ -142,6 +153,44 @@
 (add-to-list 'load-path '"~/dotfiles/emacs/modules")
 
 ;;; Appearance -----------------------------------------------------------------
+(condition-case err
+    (require 'ww-theme)
+  (error
+   (message "ww-theme failed to load: %s" (error-message-string err))
+   (use-package modus-themes
+     :ensure nil
+     :init (load-theme 'modus-vivendi-tinted t))
+   (load-theme 'modus-vivendi-tinted t)))
+
+(use-package modus-themes
+  :ensure nil
+  :demand t
+  :init
+  (add-hook 'modus-themes-after-load-theme-hook #'dw/clear-background-color)
+  (add-hook 'modus-themes-after-load-theme-hook #'ww/apply-theme-style-extras)
+  (add-hook 'emacs-startup-hook #'ww/apply-theme-style-extras)
+  (condition-case err
+      (progn
+        (ww/apply-theme-style)
+        (load-theme 'modus-vivendi-tinted t))
+    (error
+     (message "Theme style failed: %s" (error-message-string err))
+     (load-theme 'modus-vivendi-tinted t))))
+
+(defun ww/reload-theme-style ()
+  "Reload the theme module and re-apply the current Modus theme style."
+  (interactive)
+  (condition-case err
+      (progn
+        (load-file (expand-file-name "~/dotfiles/emacs/modules/ww-theme.el"))
+        (mapc #'disable-theme custom-enabled-themes)
+        (ww/apply-theme-style)
+        (load-theme 'modus-vivendi-tinted t)
+        (ww/apply-theme-style-extras))
+    (error
+     (message "Reload theme style failed: %s" (error-message-string err))
+     (mapc #'disable-theme custom-enabled-themes)
+     (load-theme 'modus-vivendi-tinted t))))
 
 (defun dw/set-terminal-title (title)
   (send-string-to-terminal (format "\e]0;%s\a" title)))
@@ -169,7 +218,7 @@
 ;; "Fixedsys Excelsior"
 ;; "Inconsolata Nerd Font"
 ;; "BlexMono Nerd Font"
-(defvar my/fixed-width-font "Iosevka Nerd Font"
+(defvar my/fixed-width-font "Inconsolata Nerd Font"
   "The font to use for monospaced (fixed width) text.")
 
 (defvar my/variable-width-font "Iosevka Aile"
@@ -196,315 +245,6 @@
 
   (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
   (add-to-list 'default-frame-alist '(fullscreen . maximized)))
-
-(defun dw/apply-ayu-dark-style ()
-  (interactive)
-  (setopt modus-themes-italic-constructs t
-          modus-themes-bold-constructs t
-          modus-themes-common-palette-overrides
-          `((bg-main "#0F111B")
-            (bg-active bg-main)
-            (fg-main "#C3CCDF")
-            (fg-active fg-main)
-            (fringe unspecified)
-            (border-mode-line-active unspecified)
-            (border-mode-line-inactive unspecified)
-            (fg-mode-line-active "#B3B1AD")
-            (bg-mode-line-active "#171B27")
-            (fg-mode-line-inactive "#65737E")
-            (bg-mode-line-inactive "#1C1F29")
-            (bg-tab-bar      "#1C1F29")
-            (bg-tab-current  bg-main)
-            (bg-tab-other    "#171B27")
-            (fg-prompt "#F6C177")
-            (bg-prompt unspecified)
-            (bg-hover-secondary "#65737E")
-            (bg-completion "#2f447f")
-            (fg-completion "#ffffff")
-            (bg-region "#2B2E36")
-            (fg-region "#ffffff")
-
-            ;; Heading colors
-            (fg-heading-0 "#81A1C1")
-            (fg-heading-1 "#81A1C1")
-            (fg-heading-2 "#F6C177")
-            (fg-heading-3 "#FFB974")
-            (fg-heading-4 "#C792EA")
-
-            (fg-prose-verbatim "#A3BE8C")
-            (bg-prose-block-contents "#171B27")
-            (fg-prose-block-delimiter "#65737E")
-            (bg-prose-block-delimiter "#171B27")
-
-            (accent-1 "#7FDBCA")
-
-            (keyword   "#F6C177")
-            (builtin   "#81A1C1")
-            (comment   "#65737E")
-            (string    "#A3BE8C")
-            (fnname    "#7FDBCA")
-            (type      "#C792EA")
-            (variable  "#FFB974")
-            (docstring "#8996A2")
-            (constant  "#F07178"))))
-
-(defun dw/apply-palenight-style ()
-  (interactive)
-  (setopt modus-themes-italic-constructs t
-          modus-themes-bold-constructs t
-          modus-themes-common-palette-overrides
-          `((bg-main "#292D3E")
-            (bg-active bg-main)
-            (fg-main "#EEFFFF")
-            (fg-active fg-main)
-            (fringe unspecified)
-            (border-mode-line-active unspecified)
-            (border-mode-line-inactive unspecified)
-            (fg-mode-line-active "#A6Accd")
-            (bg-mode-line-active "#232635")
-            (fg-mode-line-inactive "#676E95")
-            (bg-mode-line-inactive "#282c3d")
-            (bg-tab-bar      "#242837")
-            (bg-tab-current  bg-main)
-            (bg-tab-other    bg-active)
-            (fg-prompt "#c792ea")
-            (bg-prompt unspecified)
-            (bg-hover-secondary "#676E95")
-            (bg-completion "#2f447f")
-            (fg-completion white)
-            (bg-region "#3C435E")
-            (fg-region white)
-
-            (fg-heading-0 "#82aaff")
-            (fg-heading-1 "#82aaff")
-            (fg-heading-2 "#c792ea")
-            (fg-heading-3 "#bb80b3")
-            (fg-heading-4 "#a1bfff")
-
-            (fg-prose-verbatim "#c3e88d")
-            (bg-prose-block-contents "#232635")
-            (fg-prose-block-delimiter "#676E95")
-            (bg-prose-block-delimiter bg-prose-block-contents)
-
-            (accent-1 "#79a8ff")
-
-            (keyword "#89DDFF")
-            (builtin "#82aaff")
-            (comment "#676E95")
-            (string "#c3e88d")
-            (fnname "#82aaff")
-            (type "#c792ea")
-            (variable "#ffcb6b")
-            (docstring "#8d92af")
-            (constant "#f78c6c"))))
-
-(defun dw/apply-pico8-style ()
-  "Apply the PICO-8 VS Code palette to Modus themes via `modus-themes-common-palette-overrides`."
-  (interactive)
-  (setopt
-   modus-themes-italic-constructs t
-   modus-themes-bold-constructs t
-   modus-themes-common-palette-overrides
-   `(
-     ;; --- Core (VS Code: editor.background/foreground) ---
-     (bg-main "#1D2B53")
-     (bg-active bg-main)
-     (fg-main "#c2c3c7")
-     (fg-active fg-main)
-     (cursor "#ff004d")
-
-     ;; Keep these unspecified so Modus can render them appropriately
-     (fringe unspecified)
-     (border-mode-line-active unspecified)
-     (border-mode-line-inactive unspecified)
-
-     ;; --- Mode line (VS Code: statusBar.* + panel background) ---
-     ;; statusBar.background = #ff004d, statusBar.foreground = #7e2553
-     (bg-mode-line-active "#ff004d")
-     (fg-mode-line-active "#7e2553")
-     ;; panel.background = #000000, editorLineNumber.foreground = #83769c
-     (bg-mode-line-inactive "#000000")
-     (fg-mode-line-inactive "#83769c")
-
-     ;; --- Tabs (VS Code: tab.*) ---
-     ;; tab.activeBackground = #fff1e8, tab.activeForeground = #ff004d
-     ;; tab.inactiveBackground = #ff77a8, tab.inactiveForeground = #ff004d
-     ;; For Modus we mainly control the backgrounds here:
-     (bg-tab-bar     "#ff004d")   ;; matches editorGroupHeader.tabsBackground
-     (bg-tab-current "#fff1e8")
-     (bg-tab-other   "#ff77a8")
-
-     ;; --- Prompt / hover / completion / region ---
-     ;; Use a strong accent for prompts (close to VSCode tab/keyword highlights)
-     (fg-prompt "#ff77a8")
-     (bg-prompt unspecified)
-
-     ;; hover-ish secondary (VS Code uses #5f574f a lot for drop/borders)
-     (bg-hover-secondary "#5f574f")
-
-     ;; completion/widget (VS Code: editorWidget.background/border)
-     (bg-completion "#000000")
-     (fg-completion "#fff1e8")
-
-     ;; selection (VS Code: editor.selectionBackground)
-     (bg-region "#ffec27")
-     (fg-region "#000000")
-
-     ;; --- Headings (picked from PICO-8 palette ramp in the JSON) ---
-     (fg-heading-0 "#00e436")  ;; green
-     (fg-heading-1 "#29adff")  ;; blue
-     (fg-heading-2 "#ffec27")  ;; yellow
-     (fg-heading-3 "#ffa300")  ;; orange
-     (fg-heading-4 "#ff77a8")  ;; pink
-
-     ;; --- Prose / blocks (use widget/panel colors + line-number purple) ---
-     (fg-prose-verbatim "#29adff")     ;; string/heading-ish blue
-     (bg-prose-block-contents "#000000")
-     (fg-prose-block-delimiter "#83769c")
-     (bg-prose-block-delimiter bg-prose-block-contents)
-
-     ;; --- Accent ---
-     ;; VS Code cursor is #ff004d
-     (accent-1 "#ff004d")
-
-     ;; --- Syntax slots (map from tokenColors) ---
-     (keyword   "#ff77a8")  ;; Keyword, Storage
-     (builtin   "#00e436")  ;; Support Functions
-     (comment   "#83769c")  ;; Comment
-     (string    "#29adff")  ;; String, Symbols, Markup Heading
-     (fnname    "#c2c3c7")  ;; Function, Special Method
-     (type      "#fff1e8")  ;; Class, Support
-     (variable  "#ffccaa")  ;; Variables
-     (docstring "#4bb1b1")  ;; default token foreground in file
-     (constant  "#29adff")  ;; Number, Constant, etc.
-     )))
-
-(defun dw/apply-fallout2-style ()
-  (interactive)
-  (setopt modus-themes-italic-constructs t
-          modus-themes-bold-constructs t
-          modus-themes-common-palette-overrides
-          `((bg-main "#2C2C2C")
-            (bg-active bg-main)
-            (fg-main "#2CFF00")
-            (fg-active fg-main)
-
-            (fringe unspecified)
-            (border-mode-line-active unspecified)
-            (border-mode-line-inactive unspecified)
-
-            ;; Mode line / tabs
-            (fg-mode-line-active "#F0E46A")
-            (bg-mode-line-active "#2C2C2C")
-            (fg-mode-line-inactive "#8C8C8C")
-            (bg-mode-line-inactive "#1C1C1C")
-
-            (bg-tab-bar "#1C1C1C")
-            (bg-tab-current "#2C2C2C")
-            (bg-tab-other "#242424")
-
-            ;; Prompt / completion / region
-            (fg-prompt "#F0E46A")
-            (bg-prompt unspecified)
-            (bg-hover-secondary "#444444")
-            (bg-completion "#343434")
-            (fg-completion "#F0E46A")
-
-            (bg-region "#343434")
-            (fg-region "#F0E46A")
-
-            ;; Headings
-            (fg-heading-0 "#F0E46A")
-            (fg-heading-1 "#E4D85C")
-            (fg-heading-2 "#2CFF00")
-            (fg-heading-3 "#A4FCA4")
-            (fg-heading-4 "#D08C44")
-
-            ;; Prose / blocks
-            (fg-prose-verbatim "#A4FCA4")
-            (bg-prose-block-contents "#242424")
-            (fg-prose-block-delimiter "#6C6C6C")
-            (bg-prose-block-delimiter "#1C1C1C")
-
-            ;; Accent
-            (accent-1 "#F0E46A")
-
-            ;; Syntax
-            (keyword   "#F0E46A")
-            (builtin   "#D08C44")
-            (comment   "#6C6C6C")
-            (string    "#A4FCA4")
-            (fnname    "#2CFF00")
-            (type      "#A46834")
-            (variable  "#FCFC7C")
-            (docstring "#8C9B8C")
-            (constant  "#FC0000"))))
-
-(defgroup dw/theme nil
-  "Theme style configuration."
-  :group 'faces)
-
-(defcustom dw/theme-style 'pico8
-  "Theme style to apply."
-  :type '(choice
-          (const :tag "PICO-8" pico8)
-          (const :tag "Ayu Dark" ayu-dark)
-          (const :tag "Palenight" palenight)
-          (const :tag "fallout2" fallout2))
-  :group 'dw/theme)
-
-;;; Tab bar face customization for PICO-8 style
-(defun dw/apply-pico8-tab-bar-faces ()
-  "Apply PICO-8 styled tab-bar faces."
-  (modus-themes-with-colors
-    (set-face-attribute 'tab-bar nil
-                        :background bg-tab-bar
-                        :foreground fg-mode-line-active)
-    (set-face-attribute 'tab-bar-tab nil
-                        :background bg-tab-current
-                        :foreground accent-1
-                        :weight 'bold
-                        :box nil)
-    (set-face-attribute 'tab-bar-tab-inactive nil
-                        :background bg-tab-other
-                        :foreground accent-1
-                        :box nil)))
-
-(defun dw/apply-theme-style ()
-  "Apply the configured theme style."
-  (pcase dw/theme-style
-    ('pico8 (dw/apply-pico8-style))
-    ('ayu-dark (dw/apply-ayu-dark-style))
-    ('palenight (dw/apply-palenight-style))
-    ('fallout2 (dw/apply-fallout2-style))
-    (_ (error "Unknown theme style: %S" dw/theme-style))))
-
-(defun dw/apply-theme-style-extras ()
-  "Apply extra face adjustments for the configured theme style."
-  (pcase dw/theme-style
-    ('pico8
-     (dw/apply-pico8-tab-bar-faces))
-    (_ nil)))
-
-(use-package modus-themes
-  :ensure nil
-  :demand t
-  :init
-  (add-hook 'modus-themes-after-load-theme-hook #'dw/clear-background-color)
-  (add-hook 'modus-themes-after-load-theme-hook #'dw/apply-theme-style-extras)
-  (add-hook 'emacs-startup-hook #'dw/apply-theme-style-extras)
-  (dw/apply-theme-style)
-  (load-theme 'modus-vivendi-tinted t))
-
-(defun ww/reload-theme-style ()
-  "Reload the current Modus theme using `dw/theme-style'."
-  (interactive)
-  (mapc #'disable-theme custom-enabled-themes)
-  (dw/apply-theme-style)
-  (load-theme 'modus-vivendi-tinted t)
-  (dw/apply-theme-style-extras))
-
-
 
 ;; Make vertical window separators look nicer in terminal Emacs
 (set-display-table-slot standard-display-table 'vertical-border (make-glyph-code ?│))
@@ -566,6 +306,11 @@ Opening and closing delimiters will have matching colors."
 
   (add-hook 'prog-mode-hook #'emacs-solo/rainbow-delimiters))
 
+(use-package rainbow-mode
+  :hook ((prog-mode . rainbow-mode)
+         (text-mode . rainbow-mode)
+         (conf-mode . rainbow-mode)))
+
 ;; Move global mode string to the tab-bar and hide tab close buttons
 (setq tab-bar-close-button-show nil
       tab-bar-separator " "
@@ -577,6 +322,8 @@ Opening and closing delimiters will have matching colors."
 
 ;; Turn on the tab-bar
 (tab-bar-mode 1)
+;; (keymap-global-set "C-c [" #'tab-previous)
+;; (keymap-global-set "C-c ]" #'tab-next)
 
 ;; Customize time display
 (setq display-time-load-average nil
@@ -742,14 +489,23 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
          (enabled (buffer-local-value 'center-document-mode buffer))
          (managed (window-parameter window 'center-document--managed)))
     (when (or enabled managed)
-      (set-window-parameter window 'min-margins nil)
-      (set-window-margins window nil)
-      (when enabled
-        (let ((margin (center-document--margin-width window)))
-          (when (> margin 0)
-            (set-window-parameter window 'min-margins '(0 . 0))
-            (set-window-margins window margin margin))))
-      (set-window-parameter window 'center-document--managed enabled))))
+      (condition-case err
+          (progn
+            (set-window-parameter window 'min-margins nil)
+            (set-window-margins window nil)
+            (when enabled
+              (let ((margin (center-document--margin-width window)))
+                (when (> margin 0)
+                  (set-window-parameter window 'min-margins '(0 . 0))
+                  (set-window-margins window margin margin))))
+            (set-window-parameter window 'center-document--managed enabled))
+        (error
+         (with-current-buffer buffer
+           (setq-local center-document-mode nil))
+         (set-window-parameter window 'center-document--managed nil)
+         (message "Disabled center-document-mode in %s: %s"
+                  (buffer-name buffer)
+                  (error-message-string err)))))))
 
 (defun center-document--adjust-windows (&optional frame)
   (dolist (window (window-list frame 'no-mini))
@@ -778,10 +534,17 @@ Use this to compute per-buffer widths (e.g., account for text scaling or font)."
   "Toggle centered text layout in the current buffer."
   :lighter " Centered"
   :group 'editing
-  (if center-document-mode
-      (center-document--install-hooks)
-    (center-document--maybe-remove-hooks))
-  (center-document--adjust-windows))
+  (condition-case err
+      (progn
+        (if center-document-mode
+            (center-document--install-hooks)
+          (center-document--maybe-remove-hooks))
+        (center-document--adjust-windows))
+    (error
+     (setq-local center-document-mode nil)
+     (message "Disabled center-document-mode in %s: %s"
+              (buffer-name)
+              (error-message-string err)))))
 
 (add-hook 'org-mode-hook #'center-document-mode)
 (add-hook 'markdown-mode-hook #'center-document-mode)

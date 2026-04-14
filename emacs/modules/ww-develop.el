@@ -12,6 +12,13 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
+(use-package diff-hl
+  :hook ((dired-mode . diff-hl-dired-mode)
+         (magit-post-refresh . diff-hl-magit-post-refresh))
+  :config
+  (global-diff-hl-mode 1)
+  (diff-hl-flydiff-mode 1))
+
 ;; --- eldoc config ------------------------------------------------------------
 (global-set-key (kbd "C-c d") #'eldoc-doc-buffer)
 ;; Keep terminal redisplay stable; allow richer echo-area docs in GUI.
@@ -97,6 +104,10 @@
   :custom
   (project-switch-use-entire-map t))
 
+(use-package envrc
+  :ensure t
+  :hook (after-init . envrc-global-mode))
+
 (defun dw/project-compilation-buffer-name-function (name-of-mode)
   (if-let* ((project (project-current nil))
             (name (project-name project)))
@@ -137,7 +148,11 @@
           typescript-mode
           typescript-ts-mode
           c-mode
+          c-or-c++-mode
           c-ts-mode
+          c++-mode
+          c-or-c++-ts-mode
+          c++-ts-mode
           java-mode
           java-ts-mode
           python-mode
@@ -176,7 +191,12 @@
 
   ;; C/C++: clangd (Homebrew LLVM, Apple Silicon)
   (add-to-list 'eglot-server-programs
-               '((c-mode c-ts-mode) . ("/opt/homebrew/opt/llvm/bin/clangd")))
+               '((c-mode c-or-c++-mode c-ts-mode c++-mode c-or-c++-ts-mode c++-ts-mode)
+                 . ("/opt/homebrew/opt/llvm/bin/clangd"
+                    "--background-index"
+                    "--clang-tidy"
+                    "--completion-style=detailed"
+                    "--header-insertion=iwyu")))
 
   ;; JS/TS: typescript-language-server
   (add-to-list 'eglot-server-programs
@@ -195,7 +215,20 @@
 ;;; --- Zig --------------------------------------------------------------------
 (use-package zig-mode
   :ensure t
-  :mode "\\.zig\\'")
+  :mode "\\.zig\\'"
+  :config
+  ;; --- project root ----------------------------------------------------------
+  (defun my/zig--project-root ()
+    (locate-dominating-file default-directory "build.zig"))
+
+  ;; --- project commands ------------------------------------------------------
+  (defun my/zig--compile (cmd)
+    "Run a Zig compile command from the nearest Zig project root."
+    (interactive)
+    (let ((default-directory (or (my/zig--project-root) default-directory)))
+      (compile cmd)))
+
+  (global-set-key (kbd "C-c z b") (lambda () (interactive) (my/zig--compile "zig build"))))
 
 ;;; --- Racket Mode ------------------------------------------------------------
 (use-package racket-mode
@@ -264,6 +297,23 @@
 
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-ts-mode))
 
+;;;--- Go ----------------------------------------------------------------------
+
+;; --- project root ------------------------------------------------------------
+(defun my/go--project-root ()
+  (locate-dominating-file default-directory "go.mod"))
+
+;; --- project commands --------------------------------------------------------
+(defun my/go--compile (cmd)
+  "Run a Go compile command from the nearest Go project root."
+  (interactive)
+  (let ((default-directory (or (my/go--project-root) default-directory)))
+    (compile cmd)))
+
+(global-set-key (kbd "C-c g b") (lambda () (interactive) (my/go--compile "go build ./...")))
+(global-set-key (kbd "C-c g t") (lambda () (interactive) (my/go--compile "go test ./...")))
+(global-set-key (kbd "C-c g r") (lambda () (interactive) (my/go--compile "go run .")))
+
 ;;;--- Rust --------------------------------------------------------------------
 ;; Use tree-sitter Rust mode when available
 (when (fboundp 'rust-ts-mode)
@@ -278,17 +328,18 @@
 (add-hook 'rust-ts-mode-hook #'eglot-ensure)
 (add-hook 'rust-mode-hook #'eglot-ensure)
 
-;; Format on save (rustfmt via rust-analyzer)
+;; --- formatting --------------------------------------------------------------
 (defun my/rust-format-on-save ()
   (when (and (derived-mode-p 'rust-ts-mode 'rust-mode)
              (eglot-managed-p))
     (ignore-errors (eglot-format))))
 (add-hook 'before-save-hook #'my/rust-format-on-save)
 
-;; Cargo helpers (built-in compile)
+;; --- project root ------------------------------------------------------------
 (defun my/rust--project-root ()
   (locate-dominating-file default-directory "Cargo.toml"))
 
+;; --- project commands --------------------------------------------------------
 (defun my/rust--compile (cmd)
   (let ((default-directory (or (my/rust--project-root) default-directory)))
     (compile cmd)))
@@ -324,6 +375,113 @@
     source-file))
 
 (add-to-list 'file-name-handler-alist '("\\`jdt://" . ww/jdt-file-name-handler))
+
+;;; C/C++ --------------------------------------------------------------------------------
+
+;; --- project root ------------------------------------------------------------
+(defun my/cmake-project-root ()
+  "Return the nearest CMake project root."
+  (locate-dominating-file default-directory "CMakeLists.txt"))
+
+;; --- editing setup -----------------------------------------------------------
+(defun my/cpp-mode-common-setup ()
+  "Common setup for C and C++ buffers."
+  (setq-local c-basic-offset 2
+              tab-width 2
+              indent-tabs-mode nil)
+  (c-set-style "stroustrup"))
+
+(add-hook 'c-mode-hook #'my/cpp-mode-common-setup)
+(add-hook 'c++-mode-hook #'my/cpp-mode-common-setup)
+
+(with-eval-after-load 'treesit
+  (when (fboundp 'c-or-c++-ts-mode)
+    (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode)))
+  (when (fboundp 'c++-ts-mode)
+    (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode)))
+  (when (fboundp 'c-ts-mode)
+    (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))))
+
+(defun my/c-ts-mode-common-setup ()
+  "Common setup for tree-sitter C and C++ buffers."
+  (setq-local c-ts-mode-indent-offset 2
+              tab-width 2
+              indent-tabs-mode nil))
+
+(add-hook 'c-ts-mode-hook #'my/c-ts-mode-common-setup)
+(add-hook 'c++-ts-mode-hook #'my/c-ts-mode-common-setup)
+
+(add-to-list 'auto-mode-alist '("\\.h\\'"   . c-or-c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hh\\'"  . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hxx\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cc\\'"  . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cxx\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.ipp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
+
+;; --- formatting --------------------------------------------------------------
+(defun my/c-family-eglot-format-buffer-on-save ()
+  "Enable Eglot format-on-save in the current buffer."
+  (add-hook 'before-save-hook #'eglot-format-buffer nil t))
+
+(defun my/c-family-format-setup ()
+  "Set up formatting for C/C++ buffers managed by Eglot."
+  (when (bound-and-true-p eglot-managed-mode)
+    (my/c-family-eglot-format-buffer-on-save)))
+
+(add-hook 'eglot-managed-mode-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'c-ts-mode 'c++-ts-mode)
+              (my/c-family-format-setup))))
+
+;; --- project commands --------------------------------------------------------
+(defun my/project-compile ()
+  "Run `compile' from the current project root."
+  (interactive)
+  (let ((default-directory (project-root (project-current t))))
+    (call-interactively #'compile)))
+
+(defun my/project-cmake-configure-debug ()
+  "Configure the current project with a Debug CMake build."
+  (interactive)
+  (let ((default-directory (or (my/cmake-project-root) default-directory)))
+    (compile "cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && ln -sf build/compile_commands.json compile_commands.json")))
+
+(defun my/project-cmake-build ()
+  "Build the current project with CMake."
+  (interactive)
+  (let ((default-directory (or (my/cmake-project-root) default-directory)))
+    (compile "cmake --build build")))
+
+(defun my/project-cmake-configure-release ()
+  "Configure the current project with a Release CMake build."
+  (interactive)
+  (let ((default-directory (or (my/cmake-project-root) default-directory)))
+    (compile "cmake -S . -B build-release -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && ln -sf build-release/compile_commands.json compile_commands.json")))
+
+(defun my/project-cmake-build-release ()
+  "Build the current project with the Release CMake build directory."
+  (interactive)
+  (let ((default-directory (or (my/cmake-project-root) default-directory)))
+    (compile "cmake --build build-release")))
+
+(defun my/project-ctest ()
+  "Run project tests with CTest."
+  (interactive)
+  (let ((default-directory (or (my/cmake-project-root) default-directory)))
+    (compile "ctest --test-dir build --output-on-failure")))
+
+(with-eval-after-load 'project
+  (keymap-set project-prefix-map "c" #'my/project-compile)
+  (keymap-set project-prefix-map "m" #'my/project-cmake-configure-debug)
+  (keymap-set project-prefix-map "M" #'my/project-cmake-configure-release)
+  (keymap-set project-prefix-map "b" #'my/project-cmake-build)
+  (keymap-set project-prefix-map "B" #'my/project-cmake-build-release)
+  (keymap-set project-prefix-map "T" #'my/project-ctest))
+
+(with-eval-after-load 'eglot
+  (keymap-set eglot-mode-map "C-c f" #'eglot-format-buffer))
 
 
 (provide 'ww-develop)

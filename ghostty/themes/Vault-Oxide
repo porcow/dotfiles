@@ -1,0 +1,29 @@
+# Vault-Oxide
+# rusted phosphor-green theme
+
+background = #282828
+foreground = #7df54a
+
+cursor-color = #7df54a
+cursor-text = #11140F
+
+selection-background = #293723
+selection-foreground = #BDB9B3
+
+palette = 0=#11140F
+palette = 1=#683220
+palette = 2=#49a12e
+palette = 3=#A0824C
+palette = 4=#507c90
+palette = 5=#5F2B5A
+palette = 6=#61B23E
+palette = 7=#BDB9B3
+
+palette = 8=#565850
+palette = 9=#8D4A33
+palette = 10=#7df54a
+palette = 11=#b49d40
+palette = 12=#8c9c9c
+palette = 13=#6D4267
+palette = 14=#6AB14A
+palette = 15=#ececec

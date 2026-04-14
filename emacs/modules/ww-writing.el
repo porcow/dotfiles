@@ -113,8 +113,14 @@
 (defun my-markdown-display-images-on-open ()
   "Automatically display inline images when opening markdown files."
   (when (and (derived-mode-p 'markdown-mode)
+             (not noninteractive)
+             (display-images-p)
              (not markdown-inline-image-overlays))
-    (markdown-toggle-inline-images)))
+    (condition-case err
+        (markdown-toggle-inline-images)
+      (error
+       (message "Skipping markdown inline images: %s"
+                (error-message-string err))))))
 
 (use-package markdown-mode
   :custom

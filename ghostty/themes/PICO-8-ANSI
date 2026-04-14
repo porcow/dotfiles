@@ -1,0 +1,32 @@
+# PICO-8 palette remapped to better match ANSI slot semantics.
+# Keeps the same set of colors, but assigns them to more conventional
+# terminal roles fo4r red/green/yellow/blue and their bright variants.
+
+background = #000000
+# foreground = #c2c3c7
+foreground = #fff1e8
+
+cursor-color = #ff004d
+cursor-text = #1d2b53
+
+selection-background = #ffec27
+selection-foreground = #000000
+
+palette = 0=#000000
+palette = 1=#ff004d
+palette = 2=#008751
+palette = 3=#ffec27
+palette = 4=#29adff
+palette = 5=#ff77a8
+palette = 6=#00e436
+# palette = 7=#c2c3c7
+palette = 7=#83789c
+
+palette = 8=#5f574f
+palette = 9=#ff004d
+palette = 10=#a8e72e
+palette = 11=#f3ef7d
+palette = 12=#29adff
+palette = 13=#be1250
+palette = 14=#00b543
+palette = 15=#fff1e8

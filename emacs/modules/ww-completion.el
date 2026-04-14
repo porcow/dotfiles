@@ -10,17 +10,5 @@
   ;; is displayed on top (happens near the bottom of windows)
   (company-tooltip-flip-when-above t))
 
-;; Completion UI：Corfu（based on CAPF）
-;; (use-package corfu
-;;   :hook (after-init . global-corfu-mode)
-;;   :custom
-;;   (corfu-auto t)
-;;   (corfu-auto-delay 0.1)
-;;   (corfu-auto-prefix 1)
-;;   (corfu-cycle t))
-
-;; ;; corfu-terminal mode for TTY
-;; (use-package corfu-terminal
-;;   :hook (corfu-mode . corfu-terminal-mode))
 
 (provide 'ww-completion)

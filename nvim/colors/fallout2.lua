@@ -8,35 +8,37 @@ vim.o.background = "dark"
 vim.o.termguicolors = true
 
 local p = {
-  bg = "#2C2C2C",
-  bg_dark = "#1C1C1C",
-  bg_alt = "#242424",
-  bg_sel = "#343434",
-  border = "#444444",
+  bg = "#383838",
+  bg_dark = "#050c01",
+  bg_alt = "#1C1C1C",
+  bg_sel = "#1C1C1C",
+  border = "#789478",
 
-  fg = "#2CFF00",
-  fg_soft = "#A4FCA4",
-  fg_dim = "#8C8C8C",
-  comment = "#6C6C6C",
-  white = "#ECECEC",
+  fg = "#49a12e",
+  fg_soft = "#3CF800",
+  fg_dim = "#A0A0A0",
+  comment = "#9cac9c",
+  white = "#ececec",
   gray = "#A0A0A0",
 
-  yellow = "#F0E46A",
-  yellow2 = "#E4D85C",
+  yellow = "#907824",
+  yellow2 = "#e1d949",
 
-  orange = "#D08C44",
-  orange2 = "#A46834",
+  orange = "#eea059",
+  orange2 = "#c460a8",
 
-  red = "#FC0000",
-  red_dark = "#8C0000",
+  red = "#C30100",
+  red_dark = "#900000",
 
-  green = "#2CFF00",
-  green_soft = "#A4FCA4",
-  green_dark = "#005C00",
+  green = "#49a12e",
+  green_soft = "#3CF800",
+  green_dark = "#789478",
 
-  blue = "#6BBAFF",
-  cyan = "#00C8C8",
-  cyan2 = "#2C8C8C",
+  blue = "#30588c",
+  cyan = "#406c8c",
+  cyan2 = "#9cac9c",
+  magenta = "#c460a8",
+  magenta_bright = "#fcb0f0",
 }
 
 local function hi(group, opts)
@@ -103,7 +105,7 @@ hi("Number", { fg = p.orange })
 hi("Boolean", { fg = p.orange })
 hi("Float", { fg = p.orange })
 
-hi("Identifier", { fg = "#FCFC7C" })
+hi("Identifier", { fg = p.gray })
 hi("Function", { fg = p.green, bold = true })
 
 hi("Statement", { fg = p.yellow, bold = true })
@@ -119,9 +121,9 @@ hi("Include", { fg = p.yellow2 })
 hi("Define", { fg = p.orange })
 hi("Macro", { fg = p.orange })
 
-hi("Type", { fg = p.orange2 })
-hi("StorageClass", { fg = p.orange2 })
-hi("Structure", { fg = p.orange2 })
+hi("Type", { fg = p.cyan })
+hi("StorageClass", { fg = p.cyan })
+hi("Structure", { fg = p.cyan })
 hi("Typedef", { fg = p.orange })
 
 hi("Special", { fg = p.cyan })
@@ -161,8 +163,8 @@ hi("@function", { link = "Function" })
 hi("@function.builtin", { fg = p.yellow2 })
 hi("@constructor", { fg = p.orange })
 hi("@type", { link = "Type" })
-hi("@type.builtin", { fg = p.orange })
-hi("@variable", { fg = "#FCFC7C" })
+hi("@type.builtin", { fg = p.cyan })
+hi("@variable", { fg = p.gray })
 hi("@variable.builtin", { fg = p.orange2 })
 hi("@property", { fg = p.fg })
 hi("@field", { fg = p.fg })
@@ -221,9 +223,9 @@ hi("CmpItemMenu", { fg = p.comment })
 hi("CmpItemKind", { fg = p.orange2 })
 hi("CmpItemKindFunction", { fg = p.green })
 hi("CmpItemKindMethod", { fg = p.green })
-hi("CmpItemKindVariable", { fg = "#FCFC7C" })
+hi("CmpItemKindVariable", { fg = p.gray })
 hi("CmpItemKindKeyword", { fg = p.yellow })
-hi("CmpItemKindClass", { fg = p.orange })
+hi("CmpItemKindClass", { fg = p.magenta_bright })
 hi("CmpItemKindModule", { fg = p.cyan })
 
 hi("GitSignsAdd", { fg = p.green })
