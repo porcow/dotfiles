@@ -38,7 +38,7 @@
 
   (add-hook 'eglot-managed-mode-hook #'my/eglot-eldoc-setup))
 
-;; ---HTML escapes -------------------------------
+;; ---HTML escapes -------------------------------------------------------------
 (defvar rb--eldoc-html-patterns
   '(("&nbsp;" " ")
     ("&lt;" "<")
@@ -283,7 +283,7 @@
 ;;; --- Python -----------------------------------------------------------------
 (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
 
-;;; --- JS / TS / JSON----------------------------------------------------------------
+;;; --- JS / TS / JSON----------------------------------------------------------
 (use-package js-mode
   :ensure nil
   :mode ("\\.jsx?\\'")
@@ -349,7 +349,7 @@
 (global-set-key (kbd "C-c r r") (lambda () (interactive) (my/rust--compile "cargo run")))
 (global-set-key (kbd "C-c r l") (lambda () (interactive) (my/rust--compile "cargo clippy")))
 
-;;; --- Java -----------------------------------------------------------------------------
+;;; --- Java -------------------------------------------------------------------
 (defun ww/jdt-file-name-handler (operation &rest args)
   "Support Eclipse jdtls `jdt://' uri scheme."
   (let* (
@@ -376,7 +376,7 @@
 
 (add-to-list 'file-name-handler-alist '("\\`jdt://" . ww/jdt-file-name-handler))
 
-;;; C/C++ --------------------------------------------------------------------------------
+;;; C/C++ ----------------------------------------------------------------------
 
 ;; --- project root ------------------------------------------------------------
 (defun my/cmake-project-root ()

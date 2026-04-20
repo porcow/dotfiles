@@ -110,20 +110,23 @@
             (fg-active fg-main)
             (cursor "#ff004d")
             (fringe unspecified)
+
             (border-mode-line-active unspecified)
             (border-mode-line-inactive unspecified)
             (bg-mode-line-active "#83769c")
             (fg-mode-line-active "#fff1e8")
             (bg-mode-line-inactive "#83769c")
-            (fg-mode-line-inactive "#fff1e8")
+            (fg-mode-line-inactive "#1D2B53")
             (bg-tab-bar "#fff1e8")
             (bg-tab-current "#ff77a8")
-            (bg-tab-other "#fff1e8")
-            ;; (bg-hl-line "#2463B1")
-            (bg-line-number-inactive "#2463B1")
-            (bg-line-number-active "#2463B1")
-            (fg-line-number-inactive "#1D2B53")
+            (bg-tab-other "#83769c")
+
+            (bg-hl-line "#604784")
+            (bg-line-number-inactive bg-main)
+            (bg-line-number-active bg-hl-line)
+            (fg-line-number-inactive "#83769c")
             (fg-line-number-active fg-main)
+
             (fg-prompt "#ff77a8")
             (bg-prompt unspecified)
             (bg-hover-secondary "#5f574f")
@@ -131,15 +134,19 @@
             (fg-completion "#fff1e8")
             (bg-region "#ffec27")
             (fg-region "#000000")
-            (fg-heading-0 "#00e436")
-            (fg-heading-1 "#29adff")
-            (fg-heading-2 "#ffec27")
-            (fg-heading-3 "#ffa300")
-            (fg-heading-4 "#ff77a8")
+
+            (fg-heading-0 "#fff1e8")
+            (fg-heading-1 "#ff77a8")
+            (fg-heading-2 "#ffccaa")
+            (fg-heading-3 "#ffec27")
+            (fg-heading-4 "#fff1e8")
+
             (fg-prose-verbatim "#29adff")
             (bg-prose-block-contents "#000000")
             (fg-prose-block-delimiter "#83769c")
             (bg-prose-block-delimiter bg-prose-block-contents)
+            (fg-prose-code "#ffccaa")
+
             (accent-1 "#ff004d")
             (keyword "#ff77a8")
             (builtin "#00e436")
@@ -148,7 +155,6 @@
             (fnname "#c2c3c7")
             (type "#fff1e8")
             (variable "#ffccaa")
-            ;; (docstring "#4bb1b1")
             (docstring "#008751")
             (constant "#29adff")
             (preprocessor "#ff77a8"))))
@@ -166,7 +172,7 @@
                         :box nil)
     (set-face-attribute 'tab-bar-tab-inactive nil
                         :background bg-tab-other
-                        :foreground "#83769c"
+                        :foreground "#fff1e8"
                         :box nil)
     (set-face-attribute 'display-time-date-and-time nil
                         :foreground "#83769c"
@@ -187,23 +193,23 @@
           `((bg-main "#282828")
             (bg-dim "#0c0c0c")
             (bg-active bg-main)
-            (fg-main "#7df54a")
+            (fg-main "#49a12e")
             (fg-alt "#BDB9B3")
             (fg-active fg-main)
             (cursor "#7df54a")
             (fringe unspecified)
+
             (border-mode-line-active unspecified)
             (border-mode-line-inactive unspecified)
             (fg-mode-line-active "#ececec")
-            (bg-mode-line-active "#6f6652")
+            (bg-mode-line-active "#202020")
             (fg-mode-line-inactive "#BDB9B3")
-            (bg-mode-line-inactive "#6f6652")
-            (bg-tab-bar "#6f6652")
-            (bg-tab-current "#383838")
-            (bg-tab-other "#6f6652")
-            (bg-hl-line "#383838")
-            (bg-line-number-inactive "#202020")
-            (bg-line-number-active "#202020")
+            (bg-mode-line-inactive "#202020")
+
+            (bg-tab-bar "#383838")
+            (bg-tab-current bg-main)
+            (bg-tab-other bg-tab-bar)
+
             (fg-prompt "#b49d40")
             (bg-prompt unspecified)
             (bg-hover-secondary "#171C15")
@@ -211,36 +217,47 @@
             (fg-completion "#b49d40")
             (bg-region "#383838")
             (fg-region "#f7de89")
+
+            (bg-hl-line "#383838")
+            (bg-line-number-inactive "#202020")
+            (bg-line-number-active bg-hl-line)
+            (fg-line-number-active fg-region)
+
             (fg-heading-0 "#b49d40")
             (fg-heading-1 "#b49d40")
             (fg-heading-2 "#eea059")
             (fg-heading-3 "#f7de89")
-            (fg-heading-4 "#f7de89")
+            (fg-heading-4 "#ececec")
+
             (fg-prose-verbatim "#BDB9B3")
             (bg-prose-block-contents "#0c0c0c")
             (fg-prose-block-delimiter "#565850")
             (bg-prose-block-delimiter "#1c1c1c")
             (fg-prose-code "#f7de89")
-            (fg-link "#eea059")
-            (underline-link "#eea059")
-            (accent-1 "#A0824C")
-            (keyword "#A0824C")
+
+            (fg-link "#7df54a")
+            (underline-link "#7df54a")
+            (bg-hover bg-main)
+
+            (accent-1 "#f7de89")
+
+            (keyword "#f7de89")
             (builtin "#f7de89")
             (comment "#565850")
             (string "#BDB9B3")
             (fnname "#7df54a")
             (type "#ececec")
-            (variable "#49a12e")
+            (variable "#7df54a")
             (docstring "#BDB9B3")
-            (constant "#b49d40")
-            (preprocessor "#6f6652")
-            (rx-backslash "#eea059"))))
+            (constant "#f7de89")
+            (preprocessor "#A0824C")
+            (rx-backslash "#ececec"))))
 
 (defgroup dw/theme nil
   "Theme style configuration."
   :group 'faces)
 
-(defcustom ww/theme-style 'fallout2
+(defcustom ww/theme-style 'pico8
   "Theme style to apply."
   :type '(choice
           (const :tag "PICO-8" pico8)

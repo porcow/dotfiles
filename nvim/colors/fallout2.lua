@@ -8,37 +8,37 @@ vim.o.background = "dark"
 vim.o.termguicolors = true
 
 local p = {
-  bg = "#383838",
-  bg_dark = "#050c01",
-  bg_alt = "#1C1C1C",
-  bg_sel = "#1C1C1C",
-  border = "#789478",
+  bg = "#282828",
+  bg_dark = "#11140F",
+  bg_alt = "#11140F",
+  bg_sel = "#293723",
+  border = "#565850",
 
   fg = "#49a12e",
-  fg_soft = "#3CF800",
-  fg_dim = "#A0A0A0",
-  comment = "#9cac9c",
+  fg_soft = "#BDB9B3",
+  fg_dim = "#565850",
+  comment = "#565850",
   white = "#ececec",
-  gray = "#A0A0A0",
+  gray = "#BDB9B3",
 
-  yellow = "#907824",
-  yellow2 = "#e1d949",
+  yellow = "#f7de89",
+  yellow2 = "#b49d40",
 
   orange = "#eea059",
-  orange2 = "#c460a8",
+  orange2 = "#A0824C",
 
-  red = "#C30100",
-  red_dark = "#900000",
+  red = "#8D4A33",
+  red_dark = "#683220",
 
   green = "#49a12e",
-  green_soft = "#3CF800",
-  green_dark = "#789478",
+  green_soft = "#7df54a",
+  green_dark = "#11140F",
 
-  blue = "#30588c",
-  cyan = "#406c8c",
-  cyan2 = "#9cac9c",
-  magenta = "#c460a8",
-  magenta_bright = "#fcb0f0",
+  blue = "#507c90",
+  cyan = "#8c9c9c",
+  cyan2 = "#565850",
+  magenta = "#eea059",
+  magenta_bright = "#eea059",
 }
 
 local function hi(group, opts)
@@ -52,12 +52,12 @@ hi("NormalFloat", { fg = p.fg, bg = p.bg_alt })
 hi("FloatBorder", { fg = p.orange2, bg = p.bg_alt })
 hi("FloatTitle", { fg = p.yellow, bg = p.bg_alt, bold = true })
 
-hi("CursorLine", { bg = p.bg_alt })
-hi("CursorColumn", { bg = p.bg_alt })
-hi("ColorColumn", { bg = p.bg_alt })
+hi("CursorLine", { bg = p.bg_sel })
+hi("CursorColumn", { bg = p.bg_sel })
+hi("ColorColumn", { bg = p.bg_sel })
 
 hi("LineNr", { fg = p.comment, bg = p.bg })
-hi("CursorLineNr", { fg = p.yellow, bg = p.bg_alt, bold = true })
+hi("CursorLineNr", { fg = p.yellow, bg = p.bg_sel, bold = true })
 
 hi("SignColumn", { fg = p.comment, bg = p.bg })
 hi("FoldColumn", { fg = p.comment, bg = p.bg })
@@ -66,19 +66,19 @@ hi("Folded", { fg = p.fg_dim, bg = p.bg_alt })
 hi("VertSplit", { fg = p.border, bg = p.bg })
 hi("WinSeparator", { fg = p.border, bg = p.bg })
 
-hi("StatusLine", { fg = p.yellow, bg = p.bg, bold = true })
-hi("StatusLineNC", { fg = p.fg_dim, bg = p.bg_dark })
+hi("StatusLine", { fg = p.yellow, bg = p.bg_dark, bold = true })
+hi("StatusLineNC", { fg = p.comment, bg = p.bg_alt })
 
-hi("TabLine", { fg = p.fg_dim, bg = p.bg_dark })
-hi("TabLineFill", { fg = p.fg_dim, bg = p.bg_dark })
-hi("TabLineSel", { fg = p.yellow, bg = p.bg, bold = true })
+hi("TabLine", { fg = p.gray, bg = p.bg_sel })
+hi("TabLineFill", { fg = p.gray, bg = p.bg_sel })
+hi("TabLineSel", { fg = p.fg, bg = p.bg, bold = true })
 
-hi("Pmenu", { fg = p.fg_soft, bg = p.bg_alt })
+hi("Pmenu", { fg = p.yellow2, bg = p.bg_alt })
 hi("PmenuSel", { fg = p.yellow, bg = p.bg_sel, bold = true })
 hi("PmenuSbar", { bg = p.bg_dark })
 hi("PmenuThumb", { bg = p.border })
 
-hi("Visual", { fg = p.yellow, bg = p.bg_sel })
+hi("Visual", { fg = p.gray, bg = p.bg_sel })
 hi("Search", { fg = p.yellow, bg = p.bg_sel, bold = true })
 hi("IncSearch", { fg = p.bg, bg = p.yellow, bold = true })
 hi("CurSearch", { fg = p.bg, bg = p.yellow, bold = true })
@@ -88,7 +88,7 @@ hi("NonText", { fg = p.border, bg = p.bg })
 hi("Whitespace", { fg = p.border, bg = p.bg })
 hi("EndOfBuffer", { fg = p.bg, bg = p.bg })
 
-hi("Directory", { fg = p.cyan, bold = true })
+hi("Directory", { fg = p.blue, bold = true })
 hi("Title", { fg = p.yellow, bold = true })
 hi("ErrorMsg", { fg = p.red, bold = true })
 hi("WarningMsg", { fg = p.yellow, bold = true })
@@ -98,15 +98,15 @@ hi("Question", { fg = p.yellow, bold = true })
 -- Syntax
 hi("Comment", { fg = p.comment, italic = true })
 
-hi("Constant", { fg = p.red })
+hi("Constant", { fg = p.yellow })
 hi("String", { fg = p.fg_soft })
 hi("Character", { fg = p.fg_soft })
 hi("Number", { fg = p.orange })
 hi("Boolean", { fg = p.orange })
 hi("Float", { fg = p.orange })
 
-hi("Identifier", { fg = p.gray })
-hi("Function", { fg = p.green, bold = true })
+hi("Identifier", { fg = p.green_soft })
+hi("Function", { fg = p.green_soft, bold = true })
 
 hi("Statement", { fg = p.yellow, bold = true })
 hi("Conditional", { fg = p.yellow, bold = true })
@@ -116,14 +116,14 @@ hi("Operator", { fg = p.orange2 })
 hi("Keyword", { fg = p.yellow, bold = true })
 hi("Exception", { fg = p.red })
 
-hi("PreProc", { fg = p.orange })
+hi("PreProc", { fg = p.orange2 })
 hi("Include", { fg = p.yellow2 })
-hi("Define", { fg = p.orange })
-hi("Macro", { fg = p.orange })
+hi("Define", { fg = p.orange2 })
+hi("Macro", { fg = p.orange2 })
 
-hi("Type", { fg = p.cyan })
-hi("StorageClass", { fg = p.cyan })
-hi("Structure", { fg = p.cyan })
+hi("Type", { fg = p.white })
+hi("StorageClass", { fg = p.white })
+hi("Structure", { fg = p.white })
 hi("Typedef", { fg = p.orange })
 
 hi("Special", { fg = p.cyan })
@@ -133,7 +133,7 @@ hi("SpecialComment", { fg = p.comment, italic = true })
 hi("Tag", { fg = p.orange })
 
 -- Diff / diagnostics
-hi("DiffAdd", { fg = p.green, bg = p.bg_alt })
+hi("DiffAdd", { fg = p.green, bg = p.bg_dark })
 hi("DiffChange", { fg = p.yellow, bg = p.bg_alt })
 hi("DiffDelete", { fg = p.red, bg = p.bg_alt })
 hi("DiffText", { fg = p.orange, bg = p.bg_sel, bold = true })
@@ -156,15 +156,15 @@ hi("@string.regex", { fg = p.cyan })
 hi("@number", { link = "Number" })
 hi("@boolean", { link = "Boolean" })
 hi("@constant", { link = "Constant" })
-hi("@constant.builtin", { fg = p.orange })
+hi("@constant.builtin", { fg = p.yellow })
 hi("@keyword", { link = "Keyword" })
 hi("@keyword.function", { fg = p.yellow, bold = true })
 hi("@function", { link = "Function" })
 hi("@function.builtin", { fg = p.yellow2 })
 hi("@constructor", { fg = p.orange })
 hi("@type", { link = "Type" })
-hi("@type.builtin", { fg = p.cyan })
-hi("@variable", { fg = p.gray })
+hi("@type.builtin", { fg = p.white })
+hi("@variable", { fg = p.green_soft })
 hi("@variable.builtin", { fg = p.orange2 })
 hi("@property", { fg = p.fg })
 hi("@field", { fg = p.fg })
@@ -182,7 +182,7 @@ hi("MasonNormal", { fg = p.fg, bg = p.bg_alt })
 hi("TelescopeNormal", { fg = p.fg, bg = p.bg_alt })
 hi("TelescopeBorder", { fg = p.orange2, bg = p.bg_alt })
 hi("TelescopeTitle", { fg = p.yellow, bg = p.bg_alt, bold = true })
-hi("TelescopePromptNormal", { fg = p.yellow, bg = p.bg_dark })
+hi("TelescopePromptNormal", { fg = p.yellow2, bg = p.bg_dark })
 hi("TelescopePromptBorder", { fg = p.yellow2, bg = p.bg_dark })
 hi("TelescopePromptTitle", { fg = p.bg, bg = p.yellow, bold = true })
 hi("TelescopePreviewTitle", { fg = p.bg, bg = p.orange, bold = true })
@@ -192,7 +192,7 @@ hi("TelescopeMatching", { fg = p.orange, bold = true })
 
 hi("WhichKey", { fg = p.yellow })
 hi("WhichKeyGroup", { fg = p.orange })
-hi("WhichKeyDesc", { fg = p.fg_soft })
+hi("WhichKeyDesc", { fg = p.fg })
 hi("WhichKeySeperator", { fg = p.border })
 hi("WhichKeySeparator", { fg = p.border })
 hi("WhichKeyFloat", { bg = p.bg_alt })
@@ -203,7 +203,7 @@ hi("NeoTreeNormalNC", { fg = p.fg, bg = p.bg_alt })
 hi("NeoTreeFloatBorder", { fg = p.orange2, bg = p.bg_alt })
 hi("NeoTreeFloatTitle", { fg = p.yellow, bg = p.bg_alt, bold = true })
 hi("NeoTreeTitleBar", { fg = p.bg, bg = p.yellow, bold = true })
-hi("NeoTreeDirectoryName", { fg = p.cyan })
+hi("NeoTreeDirectoryName", { fg = p.blue })
 hi("NeoTreeDirectoryIcon", { fg = p.orange })
 hi("NeoTreeFileName", { fg = p.fg })
 hi("NeoTreeFileNameOpened", { fg = p.yellow })
@@ -221,12 +221,12 @@ hi("CmpItemAbbrMatch", { fg = p.yellow, bold = true })
 hi("CmpItemAbbrMatchFuzzy", { fg = p.orange, bold = true })
 hi("CmpItemMenu", { fg = p.comment })
 hi("CmpItemKind", { fg = p.orange2 })
-hi("CmpItemKindFunction", { fg = p.green })
-hi("CmpItemKindMethod", { fg = p.green })
-hi("CmpItemKindVariable", { fg = p.gray })
+hi("CmpItemKindFunction", { fg = p.green_soft })
+hi("CmpItemKindMethod", { fg = p.green_soft })
+hi("CmpItemKindVariable", { fg = p.green_soft })
 hi("CmpItemKindKeyword", { fg = p.yellow })
-hi("CmpItemKindClass", { fg = p.magenta_bright })
-hi("CmpItemKindModule", { fg = p.cyan })
+hi("CmpItemKindClass", { fg = p.white })
+hi("CmpItemKindModule", { fg = p.white })
 
 hi("GitSignsAdd", { fg = p.green })
 hi("GitSignsChange", { fg = p.yellow })

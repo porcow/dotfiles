@@ -13,6 +13,7 @@ local p = {
   bg_alt = "#5F574F",
   bg_sel = "#FFEC27",
   border = "#83769C",
+  bg_line = "#754665",
 
   fg = "#C2C3C7",
   fg_soft = "#FFF1E8",
@@ -27,8 +28,8 @@ local p = {
   yellow = "#FFEC27",
   green = "#00E436",
   blue = "#29ADFF",
-  blue_bright = "#41A6F6",
-  cyan = "#4BB1B1",
+  blue_bright = "#065AB5",
+  cyan = "#125359",
   purple = "#7E2553",
   peach = "#FFCCAA",
   brown = "#AB5236",
@@ -44,12 +45,12 @@ hi("NormalFloat", { fg = p.fg_soft, bg = p.bg_dark })
 hi("FloatBorder", { fg = p.border, bg = p.bg_dark })
 hi("FloatTitle", { fg = p.yellow, bg = p.bg_dark, bold = true })
 
-hi("CursorLine", { bg = p.purple })
-hi("CursorColumn", { bg = p.purple })
-hi("ColorColumn", { bg = p.purple })
+hi("CursorLine", { bg = p.bg_line })
+hi("CursorColumn", { bg = p.bg_line })
+hi("ColorColumn", { bg = p.bg_line })
 
 hi("LineNr", { fg = p.comment, bg = p.bg })
-hi("CursorLineNr", { fg = p.yellow, bg = p.purple, bold = true })
+hi("CursorLineNr", { fg = p.fg, bg = p.bg_line, bold = true })
 
 hi("SignColumn", { fg = p.comment, bg = p.bg })
 hi("FoldColumn", { fg = p.comment, bg = p.bg })
@@ -58,12 +59,12 @@ hi("Folded", { fg = p.fg_dim, bg = p.bg_dark })
 hi("VertSplit", { fg = p.border, bg = p.bg })
 hi("WinSeparator", { fg = p.border, bg = p.bg })
 
-hi("StatusLine", { fg = p.purple, bg = p.red, bold = true })
-hi("StatusLineNC", { fg = p.fg_dim, bg = p.bg_dark })
+hi("StatusLine", { fg = p.white, bg = p.border, bold = true })
+hi("StatusLineNC", { fg = p.fg_dim, bg = p.border })
 
-hi("TabLine", { fg = p.red, bg = p.pink })
-hi("TabLineFill", { fg = p.fg_dim, bg = p.red })
-hi("TabLineSel", { fg = p.red, bg = p.white, bold = true })
+hi("TabLine", { fg = p.white, bg = p.white })
+hi("TabLineFill", { fg = p.fg_dim, bg = p.white })
+hi("TabLineSel", { fg = p.white, bg = p.pink, bold = true })
 
 hi("Pmenu", { fg = p.white, bg = p.bg_dark })
 hi("PmenuSel", { fg = p.bg_dark, bg = p.yellow, bold = true })
@@ -165,13 +166,23 @@ hi("@tag.attribute", { fg = p.peach })
 hi("@tag.delimiter", { fg = p.fg_dim })
 
 hi("LazyNormal", { fg = p.fg, bg = p.bg })
+hi("SnacksDashboardHeader", { fg = p.pink, bold = true })
+hi("SnacksDashboardTitle", { fg = p.pink, bold = true })
+hi("SnacksDashboardKey", { fg = p.white })
+hi("SnacksDashboardDesc", { fg = p.white })
+hi("SnacksDashboardIcon", { fg = p.white })
+hi("SnacksDashboardSpecial", { fg = p.white })
+hi("MiniStarterHeader", { fg = p.pink, bold = true })
+hi("MiniStarterItem", { fg = p.white })
+hi("MiniStarterItemPrefix", { fg = p.white })
+hi("MiniStarterSection", { fg = p.white })
 hi("MasonNormal", { fg = p.fg, bg = p.bg_dark })
 
 hi("TelescopeNormal", { fg = p.fg, bg = p.bg_dark })
 hi("TelescopeBorder", { fg = p.border, bg = p.bg_dark })
 hi("TelescopeTitle", { fg = p.yellow, bg = p.bg_dark, bold = true })
-hi("TelescopePromptNormal", { fg = p.white, bg = p.purple })
-hi("TelescopePromptBorder", { fg = p.pink, bg = p.purple })
+hi("TelescopePromptNormal", { fg = p.white, bg = p.bg_line })
+hi("TelescopePromptBorder", { fg = p.pink, bg = p.bg_line })
 hi("TelescopePromptTitle", { fg = p.bg_dark, bg = p.pink, bold = true })
 hi("TelescopePreviewTitle", { fg = p.bg_dark, bg = p.orange, bold = true })
 hi("TelescopeResultsTitle", { fg = p.bg_dark, bg = p.green, bold = true })

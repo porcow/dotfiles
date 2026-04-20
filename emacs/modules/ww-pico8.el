@@ -1,4 +1,13 @@
 ;;; --- Lua major mode ---------------------------------------------------------
+(defun ww/lua-mode-common-setup ()
+  "Common setup for lua buffers."
+  (setq-local lua-indent-level 2
+              tab-width 2
+              indent-tabs-mode nil))
+
+(add-hook 'lua-mode-hook #'ww/lua-mode-common-setup)
+(add-hook 'pico8-mode-hook #'ww/lua-mode-common-setup)
+
 (use-package lua-mode
   :mode "\\.lua\\'")
 
@@ -31,10 +40,11 @@
   ;; PICO-8 font + byte-safe round-trip P8SCII editing.
   (face-remap-add-relative
    'default
-   :family "PICO-8-0.2.5"
+   :family "monogram"
    :weight 'normal
-   :height 120)
-  (setq-local line-spacing 2))
+   :height 240)
+  ;; (setq-local line-spacing 2)
+  )
 
 (use-package pico8-mode
   :vc (:url "https://github.com/porcow/pico8-mode.git"

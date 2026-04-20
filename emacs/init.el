@@ -30,6 +30,9 @@
       ;; Silence compiler warnings as they can be pretty disruptive
       native-comp-async-report-warnings-errors nil
 
+      ;; By default, images play once. To make them loop
+      image-animate-loop t
+
       ;; Smooth-ish conservative scrolling for programming
       scroll-conservatively 101
       scroll-margin 2
@@ -227,17 +230,17 @@
   (set-face-attribute 'default nil
                       :font my/fixed-width-font
                       :weight 'normal
-                      :height 140)
+                      :height 145)
 
   (set-face-attribute 'fixed-pitch nil
                       :font my/fixed-width-font
                       :weight 'normal
-                      :height 140)
+                      :height 145)
 
   (set-face-attribute 'variable-pitch nil
                       :font my/variable-width-font
                       :weight 'normal
-                      :height 140)
+                      :height 145)
 
   ;; Make frames transparent
   ;; (set-frame-parameter (selected-frame) 'alpha '(99 . 99))
@@ -311,19 +314,44 @@ Opening and closing delimiters will have matching colors."
          (text-mode . rainbow-mode)
          (conf-mode . rainbow-mode)))
 
+(defcustom ww/tab-bar-tab-title-width 20
+  "Fixed display width for each tab title in the tab bar."
+  :type 'integer
+  :group 'tab-bar)
+
+(defun ww/tab-bar-tab-name-format-centered (tab i)
+  "Format TAB title using a fixed width and center alignment.
+I is the display index of TAB."
+  (let* ((label (tab-bar-tab-name-format-default tab i))
+         (trimmed (truncate-string-to-width
+                   label ww/tab-bar-tab-title-width nil nil "…"))
+         (padding (max 0 (- ww/tab-bar-tab-title-width
+                            (string-width trimmed))))
+         (left-pad (/ padding 2))
+         (right-pad (- padding left-pad))
+         (face (funcall tab-bar-tab-face-function tab))
+         (centered (concat (make-string left-pad ?\s)
+                           trimmed
+                           (make-string right-pad ?\s))))
+    (add-face-text-property 0 (length centered) face t centered)
+    centered))
+
 ;; Move global mode string to the tab-bar and hide tab close buttons
 (setq tab-bar-close-button-show nil
-      tab-bar-separator " "
+      ;; tab-bar-separator " "
+      tab-bar-select-tab-modifiers '(meta)
+      tab-bar-tab-hints t
+      tab-bar-tab-name-format-function #'ww/tab-bar-tab-name-format-centered
       tab-bar-format '(tab-bar-format-menu-bar
                        tab-bar-format-tabs-groups
                        tab-bar-separator
                        tab-bar-format-align-right
                        tab-bar-format-global))
 
+
 ;; Turn on the tab-bar
 (tab-bar-mode 1)
-;; (keymap-global-set "C-c [" #'tab-previous)
-;; (keymap-global-set "C-c ]" #'tab-next)
+
 
 ;; Customize time display
 (setq display-time-load-average nil
@@ -437,6 +465,18 @@ If no popup window exists, display the most recent popup buffer."
  'org-babel-load-languages
  '((emacs-lisp . t)
    (shell . t)))
+
+;; Inline diplay & animate multi-frame image
+(defun ww/org-toggle-gif-at-point ()
+  (interactive)
+  (let* ((img (get-char-property (point) 'display))
+         (timer (and img (image-animate-timer img))))
+    (if timer
+        (cancel-timer timer)
+      (image-animate img 0 t))))
+
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c C-x M-a") #'ww/org-toggle-gif-at-point))
 
 ;; Use org-tempo
 (use-package org-tempo
