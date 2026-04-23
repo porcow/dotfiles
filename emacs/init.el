@@ -30,6 +30,9 @@
       ;; Silence compiler warnings as they can be pretty disruptive
       native-comp-async-report-warnings-errors nil
 
+      ;; Set the default type to relative
+      display-line-numbers-type 'relative
+
       ;; By default, images play once. To make them loop
       image-animate-loop t
 

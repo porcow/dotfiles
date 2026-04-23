@@ -11,21 +11,19 @@ selection-background = #293723
 selection-foreground = #BDB9B3
 
 palette = 0=#11140F
-palette = 1=#683220
+palette = 1=#e73223
 palette = 2=#49a12e
 palette = 3=#A0824C
 palette = 4=#507c90
 palette = 5=#eea059
-# palette = 6=#61B23E
 palette = 6=#7df54a
 palette = 7=#BDB9B3
 
 palette = 8=#565850
-palette = 9=#8D4A33
+palette = 9=#ea6f6a
 palette = 10=#7df54a
 palette = 11=#b49d40
 palette = 12=#8c9c9c
 palette = 13=#f7de89
-# palette = 14=#6AB14A
 palette = 14=#d8fc9c
 palette = 15=#ececec

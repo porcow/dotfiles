@@ -28,7 +28,7 @@
 (setq eldoc-idle-delay 0.2)
 
 (with-eval-after-load 'eglot
-  (defun my/eglot-eldoc-setup ()
+  (defun ww/eglot-eldoc-setup ()
     (setq-local eldoc-documentation-functions
                 (if (display-graphic-p)
                     '(eglot-signature-eldoc-function
@@ -36,7 +36,18 @@
                   '(eglot-signature-eldoc-function)))
     (setq-local eldoc-echo-area-use-multiline-p (display-graphic-p)))
 
-  (add-hook 'eglot-managed-mode-hook #'my/eglot-eldoc-setup))
+  (add-hook 'eglot-managed-mode-hook #'ww/eglot-eldoc-setup))
+
+(defun ww/eglot-open-link ()
+  (interactive)
+  (if-let* ((url (get-text-property (point) 'help-echo)))
+      (browse-url url)
+    (user-error "No URL at point")))
+
+(define-advice eldoc-display-in-buffer (:after (&rest _) update-keymap)
+  (with-current-buffer eldoc--doc-buffer
+    (keymap-local-set "C-c C-o" #'ww/eglot-open-link)
+    ))
 
 ;; ---HTML escapes -------------------------------------------------------------
 (defvar rb--eldoc-html-patterns

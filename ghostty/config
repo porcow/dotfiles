@@ -50,19 +50,26 @@
 
 ## Appearance -----------------------------------------
 macos-icon = retro
-theme = PICO-8-ANSI
 cursor-style = block
-shell-integration-features = no-cursor
+shell-integration-features = cursor,sudo,title
+
+# Font
 # font-family = "ComicShannsMono Nerd Font"
-# font-family = "Fixedsys Excelsior"
 font-family = "Inconsolata Nerd Font"
 font-size = 14
+font-thicken = true
+adjust-cell-height = 25%
 # Disable font ligatures
 font-feature = -liga
 font-feature = -dlig
 font-feature = -calt
-# background-opacity = 0.88
-# background-blur-radius = 65
+
+# Theme
+theme = PICO-8-ANSI
+background-opacity = 0.90
+background-blur-radius = 37
+minimum-contrast=1.1
+
 quick-terminal-size=100%,100%
 quick-terminal-position="center"
 quick-terminal-autohide=false

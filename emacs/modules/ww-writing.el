@@ -110,7 +110,7 @@
   (display-line-numbers-mode 0))
 
 ;; Automatically display and animate images when opening markdown files
-(defun my-markdown-display-images-on-open ()
+(defun ww/markdown-display-images-on-open ()
   "Automatically display inline images when opening markdown files."
   (when (and (derived-mode-p 'markdown-mode)
              (not noninteractive)
@@ -139,8 +139,10 @@
                                    (image-animate img nil t))))))))
 
   (advice-add 'markdown-toggle-inline-images :after #'my-animate-gifs-after-toggle)
-  :hook
-  (markdown-mode . my-markdown-display-images-on-open)
+
+  ;; :hook
+  ;; (markdown-mode . ww/markdown-display-images-on-open)
+
   :config
   (add-hook 'markdown-mode-hook #'dw/setup-markdown-mode)
   (dolist (face '((markdown-header-face-1 . 1.2)

@@ -241,15 +241,15 @@
 
             (accent-1 "#f7de89")
 
-            (keyword "#f7de89")
-            (builtin "#f7de89")
+            (keyword "#eea059")
+            (builtin "#eea059")
             (comment "#565850")
             (string "#BDB9B3")
             (fnname "#7df54a")
             (type "#ececec")
             (variable "#7df54a")
             (docstring "#BDB9B3")
-            (constant "#f7de89")
+            (constant "#BDB9B3")
             (preprocessor "#A0824C")
             (rx-backslash "#ececec"))))
 
